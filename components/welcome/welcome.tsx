@@ -1,7 +1,6 @@
 'use client'
 import React, { useState, useEffect } from 'react'
 import { motion } from 'framer-motion';
-import Pulso from './pulso'
 import Intro from './intro'
 import Code from './code'
 import SVG from '../common/iluminarSVG'
@@ -12,9 +11,9 @@ const enlaces = [
 ]
 
 const states = [
-    { id: 1, state: true, estado: 'disponible para proyectos' },
-    { id: 2, state: false, estado: 'En un proyecto' },
-    { id: 3, state: false, estado: 'Agenda llena' }
+    { id: 1, state: true, estado: 'disponible para proyectos', color:'bg-green-500' },
+    { id: 2, state: false, estado: 'En un proyecto', color:'bg-amber-500' },
+    { id: 3, state: false, estado: 'Agenda llena', color:'bg-red-500' }
 ]
 
 const img = [
@@ -46,11 +45,17 @@ export default function welcome() {
                 {states.map((s) => (
                     <div key={s.id} className='relative'>
                         <ul className={` flex flex-wrap gap-3 sm:w-sm justify-center items-center rounded-2xl py-2 drop-shadow-2xl drop-shadow-blue-600/50 bg-blue-500/15  ${s.state === false ? 'hidden' : ''}`}>
-                            <Pulso estado={s.estado} />
+                            <span className="relative flex h-3 w-3">
+                                <span className={`animate-ping absolute inline-flex h-full w-full rounded-full ${s.color} opacity-75`}></span>
+                                <span className={`relative inline-flex rounded-full h-3 w-3 ${s.color}`}></span>
+                            </span>
+
                             <h3 className='text-gray-200 font-bold uppercase'>{s.estado}</h3>
                         </ul>
                     </div>
                 ))}
+
+            
 
                 <Intro />
 
