@@ -4,12 +4,10 @@ import { motion, AnimatePresence } from 'framer-motion';
 
 const content = [
     {id:1, title:'Sistemas Diseñados para', span:'el Crecimiento Infinito', p:'Construyo arquitecturas de microservicios que evolucionan con tu negocio. Convierte la complejidad técnica en una ventaja competitiva escalable y de alto rendimiento.'},
-    {id:2, title:'Código de Alto Impacto, Resultados', span:'de Alto Nivel', p:'Optimizo cada línea de lógica para garantizar sistemas rápidos, estables y rentables. Desarrollo front-end y back-end enfocado en maximizar la experiencia del usuario final.'},
-    {id:3, title:'Simplificando el Futuro de', span:'Tu Infraestructura', p:'Diseño soluciones robustas que eliminan cuellos de botella técnicos. Arquitectura inteligente para que tu única preocupación sea el éxito de tu producto.'},
-    {id:4, title:'Arquitectura Que Da Vida', span:'A Ideas Complejas', p:'Fusiono ingeniería de precisión con desarrollo front-end de alto rendimiento. Transformo tu visión técnica en sistemas operativos impecables y listos para el mercado.'},
-    {id:5, title:'Ingeniería de Sistemas Con', span:'Visión Integral', p:'Más que desarrollar software, diseño el ecosistema tecnológico completo. Mi enfoque garantiza que cada componente, desde el código hasta el hardware, funcione en perfecta armonía.'},
-    {id:6, title:'Sistemas de Seguridad e', span:'Inteligencia Electrónica', p:'Protejo tus activos mediante el despliegue de infraestructura de videovigilancia IP y monitoreo avanzado. Seguridad física respaldada por precisión técnica.'},
-    {id:7, title:'Continuidad Operativa y', span:'Resiliencia Técnica', p:'Garantizo que tu tecnología nunca se detenga. Soporte especializado, mantenimiento preventivo y optimización de redes para una operatividad sin interrupciones.'}
+    {id:2, title:'Simplificando el Futuro de', span:'Tu Infraestructura', p:'Diseño soluciones robustas que eliminan cuellos de botella técnicos. Arquitectura inteligente para que tu única preocupación sea el éxito de tu producto.'},
+    {id:3, title:'Arquitectura Que Da Vida', span:'A Tus Ideas', p:'Fusiono ingeniería de precisión con desarrollo front-end de alto rendimiento. Transformo tu visión técnica en sistemas operativos impecables y listos para el mercado.'},
+    {id:4, title:'Sistemas de Seguridad e', span:'Inteligencia Electrónica', p:'Protejo tus activos mediante el despliegue de infraestructura de videovigilancia IP y monitoreo avanzado. Seguridad física respaldada por precisión técnica.'},
+    {id:5, title:'Continuidad Operativa y', span:'Resiliencia Técnica', p:'Garantizo que tu tecnología nunca se detenga. Soporte especializado, mantenimiento preventivo y optimización de redes para una operatividad sin interrupciones.'}
 ];
 
 export default function Intro() {
@@ -47,7 +45,7 @@ export default function Intro() {
                                 initial={{ opacity: 0, y: 40 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ duration: 0.6, delay: 0.5, ease: "easeOut" }}
-                                className='sm:ml-4 bg-linear-to-r from-blue-600 via-purple-700 to-purple-900 bg-clip-text text-transparent'
+                                className='sm:ml-4 bg-linear-to-r from-[#FD105E] to-[#F2C6C2] bg-clip-text text-transparent'
                             >
                                 {activeItem.span}
                             </motion.span>
@@ -59,7 +57,7 @@ export default function Intro() {
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.7, delay: 0.8, ease: "easeOut" }}
                     >
-                        <p className='text-slate-500 text-[1.3rem]  leading-relaxed'>
+                        <p className='text-[#FBF6EE] text-[1.3rem]  leading-relaxed'>
                             {activeItem.p}
                         </p>
                     </motion.div>

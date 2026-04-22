@@ -12,12 +12,12 @@ export default function atributes() {
     <section className='grid grid-cols-2 gap-3 h-full'>
 
         {contenido.map((c)=>(
-            <div key={c.id} className=" relative overflow-hidden bg-slate-800/40 backdrop-blur-md  border border-slate-600/30  shadow-[0_8px_30px_rgb(0,0,0,0.4)] rounded-3xl uppercase flex flex-col items-center justify-center p-6  transition-all duration-300  hover:bg-slate-700/50 hover:border-amber-500/50 hover:-translate-y-1 hover:shadow-[0_10px_40px_rgba(245,158,11,0.15)]  group cursor-pointer">
-                            <svg xmlns="http://www.w3.org/2000/svg" className='size-16 md:size-20 text-slate-300 group-hover:text-amber-500 transition-colors duration-300 mb-3' viewBox="0 0 640 640">
-                                <path fill="currentColor" d={c.p}/>
-                            </svg>
-                            <h4 className='font-mono text-xs text-slate-400 group-hover:text-amber-400/70 transition-colors duration-300'>{c.title}</h4>
-                            <h3 className='font-bold text-base md:text-lg text-white text-center mt-1'>{c.subTitle}</h3>
+            <div key={c.id} className=" relative overflow-hidden bg-slate-800/40 backdrop-blur-md  border border-slate-600/30  shadow-[0_8px_30px_rgb(0,0,0,0.4)] rounded-3xl uppercase flex flex-col items-center justify-center p-6  transition-all duration-300  hover:bg-slate-700/50 hover:border-[#FD105E]/50 hover:-translate-y-1 hover:shadow-[0_10px_40px_rgba(255,16,94,0.15)]  group cursor-pointer">
+                <svg xmlns="http://www.w3.org/2000/svg" className='size-16 md:size-20 text-slate-300 group-hover:text-[#FD105E] transition-colors duration-300 mb-3' viewBox="0 0 640 640">
+                    <path fill="currentColor" d={c.p}/>
+                </svg>
+                <h4 className='font-mono text-xs text-slate-400 group-hover:text-[#FD105E]/70 transition-colors duration-300'>{c.title}</h4>
+                <h3 className='font-bold text-base md:text-lg text-[#F2C6C2]/80 group-hover:text-[#FBF6EE] text-center mt-1'>{c.subTitle}</h3>
             </div>            
         ))}
     </section>

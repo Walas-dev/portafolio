@@ -4,10 +4,11 @@ import { motion } from 'framer-motion';
 import Intro from './intro'
 import Code from './code'
 import SVG from '../common/iluminarSVG'
+import Button from '../ui/Button';
 
 const enlaces = [
-    { id: 1, enlace: 'Ver proyectos', color: '#193cb8', path: 'M566.6 342.6C579.1 330.1 579.1 309.8 566.6 297.3L406.6 137.3C394.1 124.8 373.8 124.8 361.3 137.3C348.8 149.8 348.8 170.1 361.3 182.6L466.7 288L96 288C78.3 288 64 302.3 64 320C64 337.7 78.3 352 96 352L466.7 352L361.3 457.4C348.8 469.9 348.8 490.2 361.3 502.7C373.8 515.2 394.1 515.2 406.6 502.7L566.6 342.7z', url: '/' },
-    { id: 2, enlace: 'walabalaz.dev@gmail.com', color: '#ffff', path: 'M288 64C252.7 64 224 92.7 224 128L224 384C224 419.3 252.7 448 288 448L480 448C515.3 448 544 419.3 544 384L544 183.4C544 166 536.9 149.3 524.3 137.2L466.6 81.8C454.7 70.4 438.8 64 422.3 64L288 64zM160 192C124.7 192 96 220.7 96 256L96 512C96 547.3 124.7 576 160 576L352 576C387.3 576 416 547.3 416 512L416 496L352 496L352 512L160 512L160 256L176 256L176 192L160 192z', url: '' },
+    { id: 1, enlace: 'Ver proyectos', class:'bg-[#FBF6EE] text-[#111111] hover:text-[#FBF6EE]', element:'bg-[#FD105E]', color: '#193cb8', path: 'M288 64C252.7 64 224 92.7 224 128L224 384C224 419.3 252.7 448 288 448L480 448C515.3 448 544 419.3 544 384L544 183.4C544 166 536.9 149.3 524.3 137.2L466.6 81.8C454.7 70.4 438.8 64 422.3 64L288 64zM160 192C124.7 192 96 220.7 96 256L96 512C96 547.3 124.7 576 160 576L352 576C387.3 576 416 547.3 416 512L416 496L352 496L352 512L160 512L160 256L176 256L176 192L160 192z', url: '/' },
+    { id: 2, enlace: 'walabalaz.dev@gmail.com', class:'border-2 border-[#FBF6EE] text-[#FBF6EE] hover:border-transparent', element:'bg-[#111111]', color: '#ffff', path: 'M288 64C252.7 64 224 92.7 224 128L224 384C224 419.3 252.7 448 288 448L480 448C515.3 448 544 419.3 544 384L544 183.4C544 166 536.9 149.3 524.3 137.2L466.6 81.8C454.7 70.4 438.8 64 422.3 64L288 64zM160 192C124.7 192 96 220.7 96 256L96 512C96 547.3 124.7 576 160 576L352 576C387.3 576 416 547.3 416 512L416 496L352 496L352 512L160 512L160 256L176 256L176 192L160 192z', url: '' },
 ]
 
 const states = [
@@ -40,17 +41,17 @@ export default function welcome() {
     };
 
     return (
-        <div className='grid grid-cols-1 xl: xl:grid-cols-2'>
-            <section className=' bg-linear-to-r from-slate-950/35 via-[#E4572E]/45 to-[#E4572E]/80 rounded-r-4xl px-3 py-5 md:px-16 md:py-15'>
+        <div className='grid grid-cols-1 xl: xl:grid-cols-2 space-y-10'>
+            <section className=' bg-linear-to-r from-[#0F0F17]/35 via-[#FD105E]/45 to-[#FD105E]/80 rounded-r-4xl px-3 py-5 md:px-16 md:py-15'>
                 {states.map((s) => (
                     <div key={s.id} className='relative'>
-                        <ul className={` flex flex-wrap gap-3 sm:w-sm justify-center items-center rounded-2xl py-2 drop-shadow-2xl drop-shadow-blue-600/50 bg-blue-500/15  ${s.state === false ? 'hidden' : ''}`}>
+                        <ul className={` flex flex-wrap gap-3 sm:w-sm justify-center items-center rounded-2xl py-2 drop-shadow-2xl drop-shadow-[#FD105E]/50 bg-[#FD105E]/15  ${s.state === false ? 'hidden' : ''}`}>
                             <span className="relative flex h-3 w-3">
                                 <span className={`animate-ping absolute inline-flex h-full w-full rounded-full ${s.color} opacity-75`}></span>
                                 <span className={`relative inline-flex rounded-full h-3 w-3 ${s.color}`}></span>
                             </span>
 
-                            <h3 className='text-gray-200 font-bold uppercase'>{s.estado}</h3>
+                            <h3 className='text-[#FBF6EE] font-bold uppercase'>{s.estado}</h3>
                         </ul>
                     </div>
                 ))}
@@ -61,9 +62,16 @@ export default function welcome() {
 
                 <div className='flex flex-col md:flex-row gap-5 my-3'>
                     {enlaces.map((e) => (
-                        <a key={e.id} href="" className='flex items-center justify-center gap-2 py-4 px-6 rounded-lg first:bg-white first:text-black border'>
-                            {e.enlace}
-                            <svg viewBox="0 0 640 512" className="w-6 h-6">
+                        
+                        <Button 
+                            key={e.id}
+                            title={e.enlace}
+                            styleBt={`${e.class} cursor-pointer px-6 py-2.5 rounded-full hover:scale-105 text-xs font-bold uppercase `}
+                            styleTx='font-bold uppercase tracking-wide'
+                            colorElement={e.element}
+                        >
+                            <svg viewBox="0 0 640 640" 
+                                    className={`w-6 h-6 ${e.id !== 2 ? 'hidden': 'visible'} z-99`}>
                                 <motion.path
                                     d={e.path}
                                     initial={{ fill: e.color }}
@@ -74,8 +82,14 @@ export default function welcome() {
                                     }}
                                 />
                             </svg>
-                        </a>
+                        </Button>
+                        
                     ))}
+
+
+
+                
+
                 </div>
 
                 <div className='flex gap-3 my-8'>
