@@ -1,7 +1,7 @@
 'use client'
 import React, { useState } from "react";
 import Image from "next/image";
-import { motion, useScroll, useMotionValueEvent } from "framer-motion";
+import { motion, useScroll, useMotionValueEvent, AnimatePresence } from "framer-motion";
 
 
 const sections = [
@@ -15,7 +15,8 @@ export default function Header() {
   const { scrollY } = useScroll();
   const [hidden, setHidden] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const [active, setActive] = useState(null);
+  const [active, setActive] = useState<number | null>(null);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   useMotionValueEvent(scrollY, "change", (latest) => {
     const prev = scrollY.getPrevious();
@@ -35,15 +36,16 @@ export default function Header() {
     >
       <motion.div
         animate={{
-          width: scrolled ? "66%" : "70%",
           paddingTop: scrolled ? 10 : 14,
           paddingBottom: scrolled ? 10 : 14,
         }}
-        className="mt-4 flex items-center justify-between 
+        className={`mt-4 flex items-center justify-between 
         bg-[#0F0F17]/70 backdrop-blur-xl 
         border border-white/10
         shadow-[0_10px_30px_rgba(0,0,0,0.3)]
-        px-6 rounded-full"
+        px-6 rounded-full 
+        transition-[width] duration-300 ease-in-out
+        ${scrolled ? "w-[95%] md:w-[66%] lg:w-[60%]" : "w-[98%] md:w-[70%] lg:w-[66%]"}`}
       >
 
         <div className="text-white font-semibold tracking-wide flex items-center gap-1 text-xl md:text-2xl">
@@ -53,7 +55,9 @@ export default function Header() {
             width={50}
             height={30}
           />
-          <span className="text-rose-400 font-bold">illiams</span> Alas
+          <div className="hidden md:block">
+            <span className="text-rose-400 font-bold">illiams</span> Alas
+          </div>
         </div>
 
         <nav className="hidden md:flex items-center gap-8">
@@ -94,7 +98,50 @@ export default function Header() {
           ))}
         </nav>
 
+        {/* Hambuerguesa para Mobile */}
+        <button 
+          className="md:hidden text-white p-2"
+          onClick={() => setMenuOpen(!menuOpen)}
+          aria-label="Toggle Menu"
+        >
+          <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            {menuOpen ? (
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+            ) : (
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+            )}
+          </svg>
+        </button>
       </motion.div>
+
+      {/* Dropdown Menu para Mobile */}
+      <AnimatePresence>
+        {menuOpen && (
+          <motion.div
+            initial={{ opacity: 0, y: -20, scale: 0.95 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: -20, scale: 0.95 }}
+            transition={{ duration: 0.2 }}
+            className="absolute top-20 w-[95%] left-1/2 -translate-x-1/2 md:hidden"
+          >
+            <div className="bg-[#0F0F17]/90 backdrop-blur-xl border border-white/10 rounded-3xl p-4 flex flex-col gap-2 shadow-[0_10px_40px_rgba(0,0,0,0.5)]">
+              {sections.map((s) => (
+                <a
+                  key={s.id}
+                  href={s.ref}
+                  onClick={() => setMenuOpen(false)}
+                  className="flex items-center gap-4 px-4 py-3 rounded-2xl transition hover:bg-white/5"
+                >
+                  <svg className="w-6 h-6 fill-rose-500" viewBox="0 0 640 640">
+                    <path d={s.p} />
+                  </svg>
+                  <span className="text-white text-lg font-medium">{s.section}</span>
+                </a>
+              ))}
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </motion.header>
   );
 }

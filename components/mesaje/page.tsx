@@ -65,12 +65,14 @@ const secciones: SeccionData[] = [
   { 
     texto: 'Tecnología.', colorPrincipal: '#06B6D4', bgClases: 'bg-gradient-to-t from-cyan-500/20 to-blue-500/20 rotate-45',
     estadoInicial: { rotateX: 90, opacity: 0 }, estadoFinal: { rotateX: 0, opacity: 1 },
-    // FORMA: HEXÁGONOS SVG (Nodos, redes, eficiencia estructural)
-    figuras: [
-      { x: -35, yStart: -300, yEnd: -200, rotacionInicial: 0, rotacionFinal: 120, tamaño: 'w-24 h-24', borderRadius: 'rounded-none', esSVG: true, viewBox: "0 0 100 100", pathSVG: "M50 5 L95 27.5 L95 72.5 L50 95 L5 72.5 L5 27.5 Z" },
-      { x: 10,  yStart: 800, yEnd: -100, rotacionInicial: 15, rotacionFinal: 180, tamaño: 'w-32 h-32', borderRadius: 'rounded-none', esSVG: true, viewBox: "0 0 100 100", pathSVG: "M50 5 L95 27.5 L95 72.5 L50 95 L5 72.5 L5 27.5 Z" },
-      { x: 30,  yStart: 300, yEnd: -500, rotacionInicial: -45, rotacionFinal: 45, tamaño: 'w-16 h-16', borderRadius: 'rounded-none', esSVG: true, viewBox: "0 0 100 100", pathSVG: "M50 5 L95 27.5 L95 72.5 L50 95 L5 72.5 L5 27.5 Z" },
-      { x: 45,  yStart: 700, yEnd: -300, rotacionInicial: 90, rotacionFinal: 270, tamaño: 'w-20 h-20', borderRadius: 'rounded-none', esSVG: true, viewBox: "0 0 100 100", pathSVG: "M50 5 L95 27.5 L95 72.5 L50 95 L5 72.5 L5 27.5 Z" }
+   figuras: [
+      { x: -30, yStart: -400, yEnd: -80, rotacionInicial: 0, rotacionFinal: 120, tamaño: 'w-20 h-20', borderRadius: 'rounded-none', esSVG: true, viewBox: "0 0 100 100", pathSVG: "M50 5 L95 27.5 L95 72.5 L50 95 L5 72.5 L5 27.5 Z" },
+      { x: -40, yStart: -500, yEnd: -220, rotacionInicial: 45, rotacionFinal: 180, tamaño: 'w-16 h-16', borderRadius: 'rounded-none', esSVG: true, viewBox: "0 0 100 100", pathSVG: "M50 5 L95 27.5 L95 72.5 L50 95 L5 72.5 L5 27.5 Z" },
+      { x: 35,  yStart: -500, yEnd: -220, rotacionInicial: 15, rotacionFinal: 90, tamaño: 'w-32 h-32', borderRadius: 'rounded-none', esSVG: true, viewBox: "0 0 100 100", pathSVG: "M50 5 L95 27.5 L95 72.5 L50 95 L5 72.5 L5 27.5 Z" },
+      { x: 45,  yStart: 0, yEnd: -20, rotacionInicial: -45, rotacionFinal: 45, tamaño: 'w-16 h-16', borderRadius: 'rounded-none', esSVG: true, viewBox: "0 0 100 100", pathSVG: "M50 5 L95 27.5 L95 72.5 L50 95 L5 72.5 L5 27.5 Z" },
+      { x: 28,  yStart: 600, yEnd: -50, rotacionInicial: 90, rotacionFinal: 270, tamaño: 'w-24 h-24', borderRadius: 'rounded-none', esSVG: true, viewBox: "0 0 100 100", pathSVG: "M50 5 L95 27.5 L95 72.5 L50 95 L5 72.5 L5 27.5 Z" },
+      { x: 15,  yStart: 600, yEnd: 200, rotacionInicial: 0, rotacionFinal: 180, tamaño: 'w-16 h-16', borderRadius: 'rounded-none', esSVG: true, viewBox: "0 0 100 100", pathSVG: "M50 5 L95 27.5 L95 72.5 L50 95 L5 72.5 L5 27.5 Z" },
+      { x: -25, yStart: 500, yEnd: 100, rotacionInicial: -90, rotacionFinal: 0, tamaño: 'w-24 h-24', borderRadius: 'rounded-none', esSVG: true, viewBox: "0 0 100 100", pathSVG: "M50 5 L95 27.5 L95 72.5 L50 95 L5 72.5 L5 27.5 Z" }
     ]
   },
   { 
@@ -103,11 +105,20 @@ const secciones: SeccionData[] = [
     estadoInicial: { filter: 'blur(10px)', opacity: 0, scale: 1.1 }, estadoFinal: { filter: 'blur(0px)', opacity: 1, scale: 1 },
     // FORMA: TRIÁNGULOS SVG (Dirección, dinamismo, el final del recorrido)
     figuras: [
-      { x: -35, yStart: 600, yEnd: -300, rotacionInicial: 0, rotacionFinal: 360,  tamaño: 'w-24 h-24', borderRadius: 'rounded-none', esSVG: true, viewBox: "0 0 100 100", pathSVG: "M50 5L5 55h5L100 50z" },
-      { x: -25, yStart: 0, yEnd: -300, rotacionInicial: 45, rotacionFinal: 180,  tamaño: 'w-24 h-24', borderRadius: 'rounded-none', esSVG: true, viewBox: "0 0 100 100", pathSVG: "M50 5L5 55h5L100 50z" },
+      //arriba
+      { x: -5,  yStart: 200, yEnd: -600, rotacionInicial: 90, rotacionFinal: 450,  tamaño: 'w-24 h-24', borderRadius: 'rounded-none', esSVG: true, viewBox: "0 0 100 100", pathSVG: "M12 2L2 22h20L12 2z" },
+      { x: -29, yStart: -300, yEnd: -100, rotacionInicial: 45, rotacionFinal: 180,  tamaño: 'w-24 h-24', borderRadius: 'rounded-none', esSVG: true, viewBox: "0 0 100 100", pathSVG: "M50 5L5 55h5L100 50z" },
+      { x: -38, yStart: -500, yEnd: -100, rotacionInicial: -20, rotacionFinal: 360,  tamaño: 'w-32 h-32', borderRadius: 'rounded-none', esSVG: true, viewBox: "0 0 100 100", pathSVG: "M50 5L5 55h5L100 50z" },
+      { x: 35,  yStart: -400, yEnd: -100, rotacionInicial: 0, rotacionFinal: 360, tamaño: 'w-32 h-32', borderRadius: 'rounded-none', esSVG: true, viewBox: "0 0 100 100", pathSVG: "M50 5L5 55h5L50 50z" },
+      { x: 43,  yStart: -500, yEnd: -100, rotacionInicial: -45, rotacionFinal: 135, tamaño: 'w-24 h-24', borderRadius: 'rounded-none', esSVG: true, viewBox: "0 0 100 100", pathSVG: "M12 2L2 22h20L12 2z" },
+      //abajo
+      { x: -40, yStart: 600, yEnd: -95, rotacionInicial: 45, rotacionFinal: 360,  tamaño: 'w-40 h-40', borderRadius: 'rounded-none', esSVG: true, viewBox: "0 0 100 100", pathSVG: "M50 5L5 55h5L100 50z" },
+      { x: -30, yStart: 600, yEnd: -150, rotacionInicial: -125, rotacionFinal: 180,  tamaño: 'w-28 h-28', borderRadius: 'rounded-none', esSVG: true, viewBox: "0 0 100 100", pathSVG: "M50 5L5 55h5L100 50z" },
+      { x: -36, yStart: 600, yEnd: -350, rotacionInicial: 0, rotacionFinal: -260,  tamaño: 'w-12 h-12', borderRadius: 'rounded-none', esSVG: true, viewBox: "0 0 100 100", pathSVG: "M50 5L5 55h5L100 50z" },
       { x: -15, yStart: 400, yEnd: -500, rotacionInicial: 45, rotacionFinal: -315, tamaño: 'w-12 h-12', borderRadius: 'rounded-none', esSVG: true, viewBox: "0 0 100 100", pathSVG: "M12 2L2 22h20L12 2z" },
       { x: 10,  yStart: 800, yEnd: -200, rotacionInicial: 90, rotacionFinal: 450,  tamaño: 'w-32 h-32', borderRadius: 'rounded-none', esSVG: true, viewBox: "0 0 100 100", pathSVG: "M12 2L2 22h20L12 2z" },
-      { x: 30,  yStart: 100, yEnd: -600, rotacionInicial: -45, rotacionFinal: 135, tamaño: 'w-16 h-16', borderRadius: 'rounded-none', esSVG: true, viewBox: "0 0 100 100", pathSVG: "M50 5L5 55h5L50 50z" },
+      { x: 35,  yStart: 500, yEnd: -200, rotacionInicial: 90, rotacionFinal: 450,  tamaño: 'w-64 h-64', borderRadius: 'rounded-none', esSVG: true, viewBox: "0 0 100 100", pathSVG: "M12 2L2 22h20L12 2z" },
+      { x: 40, yStart: 950, yEnd: -350, rotacionInicial: 15, rotacionFinal: -260,  tamaño: 'w-32 h-32', borderRadius: 'rounded-none', esSVG: true, viewBox: "0 0 100 100", pathSVG: "M50 5L5 55h5L100 50z" },
       { x: 45,  yStart: 700, yEnd: -400, rotacionInicial: 180, rotacionFinal: 540, tamaño: 'w-20 h-20', borderRadius: 'rounded-none', esSVG: true, viewBox: "0 0 100 100", pathSVG: "M12 2L2 22h20L12 2z" }
     ]
   },
@@ -217,7 +228,7 @@ const FondoDinamico: React.FC<FondoDinamicoProps> = ({ indice, total, progresoSc
       
       <motion.div
         style={{ opacity: opacidadFondo, scale: escalaFondo }}
-        className={`absolute w-[45vw] h-[45vw] blur-3xl ${datos.bgClases}`}
+        className={`absolute w-[80vw] h-[80vw] md:w-[45vw] md:h-[45vw] blur-3xl ${datos.bgClases}`}
       />
 
       {datos.figuras?.map((fig, idx) => (
@@ -273,15 +284,15 @@ export default function SeccionSoy() {
         ))}
       </div>
 
-      <div className="absolute top-0 w-full flex text-6xl md:text-8xl font-bold font-sans z-20 pointer-events-none">
+      <div className="absolute top-0 w-full flex text-4xl sm:text-6xl md:text-8xl font-bold font-sans z-20 pointer-events-none">
         
-        <div className="sticky top-0 flex h-screen w-1/2 items-center justify-end pr-6 md:pr-10">
+        <div className="sticky top-0 flex h-screen w-2/5 md:w-1/2 items-center justify-end pr-4 md:pr-10">
           <h3 className="text-white drop-shadow-xl tracking-tight">Soy</h3>
         </div>
 
-        <div className="flex w-1/2 flex-col">
+        <div className="flex w-3/5 md:w-1/2 flex-col">
           {secciones.map((sec, i) => (
-            <div key={`text-${i}`} className="flex h-screen items-center justify-start pl-6 md:pl-10">
+            <div key={`text-${i}`} className="flex h-screen items-center justify-start pl-4 md:pl-10">
               <motion.span
                 initial={sec.estadoInicial}       
                 whileInView={sec.estadoFinal}     
