@@ -9,7 +9,7 @@ const contenido = [
 
 export default function atributes() {
   return (
-    <section className='grid grid-cols-2 gap-3 h-full'>
+    <section className='grid grid-cols-1 sm:grid-cols-2 gap-3 h-full w-full'>
 
         {contenido.map((c)=>(
             <div key={c.id} className=" relative overflow-hidden bg-slate-800/40 backdrop-blur-md  border border-slate-600/30  shadow-[0_8px_30px_rgb(0,0,0,0.4)] rounded-3xl uppercase flex flex-col items-center justify-center p-6  transition-all duration-300  hover:bg-slate-700/50 hover:border-[#FD105E]/50 hover:-translate-y-1 hover:shadow-[0_10px_40px_rgba(255,16,94,0.15)]  group cursor-pointer">

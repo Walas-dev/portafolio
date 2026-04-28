@@ -7,7 +7,7 @@ const button = [
 
 export default function description() {
   return (
-    <div className=' bg-[#FD105E] rounded-3xl flex flex-col justify-center col-span-2 p-8 md:p-12 shadow-2xl'>
+    <div className='bg-[#FD105E] rounded-3xl flex flex-col justify-center w-full p-6 sm:p-8 md:p-12 shadow-2xl h-full'>
         
             <div className='p-5 '>
                 <h4 className='text-[1.5rem] md:text-xl font-extralight uppercase pb-2'>ingeniero de sistemas</h4>
@@ -30,14 +30,14 @@ export default function description() {
                 
             </div>
 
-            <div className='flex gap-6 p-5 items-center '>
+            <div className='flex flex-col sm:flex-row sm:flex-wrap gap-4 md:gap-6 px-1 md:px-5 py-5 items-stretch sm:items-center'>
                 {
                     button.map((b)=>(
                         <Button 
                                 key={b.id} 
                             title={b.title}
-                            styleBt={`${b.class} cursor-pointer px-8 py-4 rounded-full flex items-center gap-3 transition-all duration-300  hover:scale-105 text-xs font-bold uppercase `}
-                            styleTx='font-bold uppercase tracking-wide'
+                            styleBt={`${b.class} cursor-pointer w-full sm:w-auto px-6 md:px-8 py-3 md:py-4 rounded-full flex justify-center items-center gap-3 transition-all duration-300 hover:scale-105 text-xs font-bold uppercase `}
+                            styleTx='font-bold uppercase tracking-wide text-center'
                             colorElement={`${b.element}`}
                         />
                     ))

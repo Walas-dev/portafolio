@@ -2,7 +2,7 @@ import React from 'react'
 
 export default function Motto() {
   return (
-    <div className='bg-linear-to-br from-[#FD105E]/20 to-slate-900/40 backdrop-blur-sm rounded-3xl flex flex-col items-start p-8 border border-amber-500/20 relative overflow-hidden h-full'>
+    <div className='size-full bg-linear-to-br from-[#FD105E]/20 to-slate-900/40 backdrop-blur-sm rounded-3xl flex flex-col items-start p-8 border border-amber-500/20 relative overflow-hidden h-full'>
         <svg xmlns="http://www.w3.org/2000/svg" className="size-8 text-[#FD105E]/40 mb-auto" viewBox="0 0 24 24" fill="currentColor">
             <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" />
         </svg>

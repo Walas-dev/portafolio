@@ -41,7 +41,7 @@ export default function ActionCardCarrusel() {
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
          
-            className='relative h-full p-8 bg-slate-800/80 backdrop-blur-sm border border-slate-700 flex flex-col items-center justify-between rounded-3xl transition-colors hover:bg-slate-800 overflow-hidden min-h-85'
+            className='relative size-full p-8 bg-slate-800/80 backdrop-blur-sm border border-slate-700 flex flex-col items-center justify-between rounded-3xl transition-colors hover:bg-slate-800 overflow-hidden min-h-85'
         >
             <div className="flex-1 w-full flex flex-col items-center justify-center relative z-10">
                 <AnimatePresence mode="wait">
@@ -78,7 +78,7 @@ export default function ActionCardCarrusel() {
             </div>
 
          
-            <div className='absolute top-80 flex flex-col items-center gap-2 z-10'>
+            <div className='absolute top-70 lg:top-80 flex flex-col items-center gap-2 z-10'>
                 <div className='bg-[#FD105E] h-2 w-24 rounded-2xl'/>
                 <div className='bg-[#FD105E] h-2 w-12 rounded-2xl'/>
             </div>

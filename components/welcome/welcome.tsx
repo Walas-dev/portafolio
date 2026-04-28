@@ -41,8 +41,8 @@ export default function welcome() {
     };
 
     return (
-        <div className='grid grid-cols-1 xl: xl:grid-cols-2 space-y-10'>
-            <section className=' bg-linear-to-r from-[#0F0F17]/35 via-[#FD105E]/45 to-[#FD105E]/80 rounded-r-4xl px-3 py-5 md:px-16 md:py-15'>
+        <div className='grid grid-cols-1 lg:grid-cols-2 space-y-10 lg:space-y-0'>
+            <section className='bg-linear-to-r from-[#0F0F17]/35 via-[#FD105E]/45 to-[#FD105E]/80 rounded-3xl lg:rounded-l-none lg:rounded-r-4xl px-3 py-5 md:px-16 md:py-15'>
                 {states.map((s) => (
                     <div key={s.id} className='relative'>
                         <ul className={` flex flex-wrap gap-3 sm:w-sm justify-center items-center rounded-2xl py-2 drop-shadow-2xl drop-shadow-[#FD105E]/50 bg-[#FD105E]/15  ${s.state === false ? 'hidden' : ''}`}>

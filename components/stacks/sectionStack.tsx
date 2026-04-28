@@ -15,10 +15,8 @@ export default function sectionStack({ title, colorTitle, fondo, children }: Con
                 <h3 className={`font-bold text-[2rem] sm:text-[3rem] ${colorTitle}  bg-clip-text text-transparent`}>{title}</h3>
             </div>
 
-            <div className='CARROUSEL flex items-center gap-10 md:w-[65%] py-3 justify-center overflow-hidden'>
-                <div className='CONTENEDOR_CARDS flex gap-5'>
-                    {children}
-                </div>
+            <div className='CARROUSEL w-full flex-1 md:w-[65%] py-3 overflow-hidden relative'>
+                {children}
             </div>
         </div>
     )

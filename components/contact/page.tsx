@@ -72,7 +72,7 @@ export default function Page() {
                       <motion.h3
                         key={e.id}
                         variants={animateTitle}
-                        className='uppercase font-black text-[3.5rem] md:text-[5.5rem] text-[#111111] leading-[0.95] tracking-tighter'
+                        className='uppercase font-black text-5xl sm:text-6xl md:text-[5.5rem] text-[#111111] leading-[0.95] tracking-tighter'
                       >
                         {e.t}
                       </motion.h3>
@@ -85,7 +85,7 @@ export default function Page() {
                 initial="oculto" 
                 whileInView="visible"
                 viewport={{ once: false, amount: 0.5 }}
-                className='text-[#111111]/80 mt-6 mb-10 text-lg md:text-xl font-semibold max-w-2xl'
+                className='text-[#111111]/80 mt-6 mb-10 text-base sm:text-lg md:text-xl font-semibold max-w-2xl'
               >
                     Tu visión merece el respaldo de expertos para alcanzar su máximo potencial. Unamos talentos ahora para materializar tus grandes objetivos y ver tu negocio crecer con solidez.
               </motion.p>

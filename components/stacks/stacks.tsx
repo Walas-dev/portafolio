@@ -13,7 +13,7 @@ export default function Stacks() {
         <p className='text-[1.3rem] text-[#F2C6C2]'>Herramentas y tecnologías que domino para construir el futuro.</p>
       </div>
 
-      <section className='overflow-hidden  flex flex-col w-full gap-10 items-center px-10'>
+      <section className='overflow-hidden flex flex-col w-full gap-10 items-center px-4 sm:px-6 md:px-10'>
         <Animation index={0} className='w-full'>
           <SectionStack
             title="Frontend Moderno"
