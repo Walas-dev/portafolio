@@ -71,7 +71,7 @@ export default function welcome() {
                             colorElement={e.element}
                         >
                             <svg viewBox="0 0 640 640" 
-                                    className={`w-6 h-6 ${e.id !== 2 ? 'hidden': 'visible'} z-99`}>
+                                    className={`w-6 h-6 ${e.id !== 2 ? 'hidden': 'visible'} z-0`}>
                                 <motion.path
                                     d={e.path}
                                     initial={{ fill: e.color }}

@@ -7,7 +7,7 @@ import CarruselInfinito from '@/components/ui/Carrousel'
 
 export default function Stacks() {
   return (
-    <div className='flex-wrap flex w-full justify-center pb-8'>
+    <div id="stack" className='flex-wrap flex w-full justify-center pb-8'>
       <div className='items-center text-center pb-8'>
         <h3 className='text-[2.1rem] md:text-[3rem] font-bold text-[#FBF6EE]'><span className='text-[#FD105E]'>./</span> Stack Tecnológico</h3>
         <p className='text-[1.3rem] text-[#F2C6C2]'>Herramentas y tecnologías que domino para construir el futuro.</p>

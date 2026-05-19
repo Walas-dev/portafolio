@@ -56,7 +56,7 @@ const animateB: Variants = {
 
 export default function Page() {
   return (
-    <div className='relative flex w-full min-h-screen items-center justify-center bg-[#FD105E] overflow-hidden'>
+    <div id="contacto" className='relative flex w-full min-h-screen items-center justify-center bg-[#FD105E] overflow-hidden'>
       
         <div className='absolute z-10 text-center text-white items-center justify-center flex flex-col px-4'>    
                 

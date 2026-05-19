@@ -12,7 +12,7 @@ import FadeInCard from '@/components/ui/animationEntry'
 
 export default function About() {
   return (
-    <div className='flex-wrap flex pt-15 pb-10 justify-center overflow-hidden'>
+    <div id="enfoque" className='flex-wrap flex pt-15 pb-10 justify-center overflow-hidden'>
       <div className='grid grid-cols-1 lg:grid-cols-3 gap-3 px-3 py-5 md:px-10 w-full'>
         
         {/* SECCIÓN SUPERIOR */}

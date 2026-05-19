@@ -2,7 +2,7 @@ import Footer from "@/components/footer";
 import Header from "@/components/header";
 import AboutMe from "@/components/about me/page"
 import Welcome from "@/components/welcome/welcome";
-import Stack from "@/components/stacks/stacks";
+import Stack from "@/components/stacks/page";
 import Certification from "@/components/certificados/page";
 import Mensaje from "@/components/mesaje/page"
 import Contact from "@/components/contact/page"
