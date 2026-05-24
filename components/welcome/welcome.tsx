@@ -1,14 +1,14 @@
 'use client'
 import React, { useState, useEffect } from 'react'
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import Intro from './intro'
 import Code from './code'
 import SVG from '../common/iluminarSVG'
 import Button from '../ui/Button';
 
 const enlaces = [
-    { id: 1, enlace: 'Ver proyectos', class:'bg-[#FBF6EE] text-[#111111] hover:text-[#FBF6EE]', element:'bg-[#FD105E]', color: '#193cb8', path: 'M288 64C252.7 64 224 92.7 224 128L224 384C224 419.3 252.7 448 288 448L480 448C515.3 448 544 419.3 544 384L544 183.4C544 166 536.9 149.3 524.3 137.2L466.6 81.8C454.7 70.4 438.8 64 422.3 64L288 64zM160 192C124.7 192 96 220.7 96 256L96 512C96 547.3 124.7 576 160 576L352 576C387.3 576 416 547.3 416 512L416 496L352 496L352 512L160 512L160 256L176 256L176 192L160 192z', url: '/' },
-    { id: 2, enlace: 'walabalaz.dev@gmail.com', class:'border-2 border-[#FBF6EE] text-[#FBF6EE] hover:border-transparent', element:'bg-[#111111]', color: '#ffff', path: 'M288 64C252.7 64 224 92.7 224 128L224 384C224 419.3 252.7 448 288 448L480 448C515.3 448 544 419.3 544 384L544 183.4C544 166 536.9 149.3 524.3 137.2L466.6 81.8C454.7 70.4 438.8 64 422.3 64L288 64zM160 192C124.7 192 96 220.7 96 256L96 512C96 547.3 124.7 576 160 576L352 576C387.3 576 416 547.3 416 512L416 496L352 496L352 512L160 512L160 256L176 256L176 192L160 192z', url: '' },
+    { id: 1, enlace: 'Ver proyectos', ref:"https://github.com/Walas-dev?tab=repositories",class:'bg-[#FBF6EE] text-[#111111] hover:text-[#FBF6EE]', element:'bg-[#FD105E]', color: '#193cb8', path: 'M288 64C252.7 64 224 92.7 224 128L224 384C224 419.3 252.7 448 288 448L480 448C515.3 448 544 419.3 544 384L544 183.4C544 166 536.9 149.3 524.3 137.2L466.6 81.8C454.7 70.4 438.8 64 422.3 64L288 64zM160 192C124.7 192 96 220.7 96 256L96 512C96 547.3 124.7 576 160 576L352 576C387.3 576 416 547.3 416 512L416 496L352 496L352 512L160 512L160 256L176 256L176 192L160 192z', url: '/' },
+    { id: 2, enlace: '', class:'border-2 border-[#FBF6EE] text-[#FBF6EE] hover:border-transparent', element:'bg-[#111111]', color: '#ffff', path: 'M288 64C252.7 64 224 92.7 224 128L224 384C224 419.3 252.7 448 288 448L480 448C515.3 448 544 419.3 544 384L544 183.4C544 166 536.9 149.3 524.3 137.2L466.6 81.8C454.7 70.4 438.8 64 422.3 64L288 64zM160 192C124.7 192 96 220.7 96 256L96 512C96 547.3 124.7 576 160 576L352 576C387.3 576 416 547.3 416 512L416 496L352 496L352 512L160 512L160 256L176 256L176 192L160 192z', url: '' },
 ]
 
 const states = [
@@ -24,10 +24,21 @@ const img = [
 ]
 
 
-export default function welcome() {
+export default function Welcome() {
+    const email = "WALABALAZ.DEV@GMAIL.COM";
+    const [copiado, setCopiado] = useState(false);
 
+    const handleCopiarCorreo = async () => {
+        try {
+        await navigator.clipboard.writeText(email.toLowerCase());
+        setCopiado(true);
+        setTimeout(() => setCopiado(false), 2000);
+        } catch (err) {
+        console.error('Error al copiar: ', err);
+        }
+    };
+    
     const [ronda, setRonda] = useState(0);
-
     useEffect(() => {
         const timer = setTimeout(() => {
             setRonda((r) => r + 1);
@@ -65,23 +76,40 @@ export default function welcome() {
                         
                         <Button 
                             key={e.id}
-                            title={e.enlace}
-                            styleBt={`${e.class} cursor-pointer px-6 py-2.5 rounded-full hover:scale-105 text-xs font-bold uppercase `}
+                            title={e.enlace.startsWith('Ver') ? e.enlace : (copiado ? "¡CORREO COPIADO!" : email)
+                            }
+                            styleBt={`${e.class} cursor-pointer px-6 py-3 rounded-full hover:scale-105 text-xs font-bold uppercase `}
                             styleTx='font-bold uppercase tracking-wide'
                             colorElement={e.element}
+                            onClick={e.enlace.startsWith('Ver') ? ()=>{}:handleCopiarCorreo}
+                            href={e.ref}
                         >
-                            <svg viewBox="0 0 640 640" 
-                                    className={`w-6 h-6 ${e.id !== 2 ? 'hidden': 'visible'} z-0`}>
-                                <motion.path
-                                    d={e.path}
-                                    initial={{ fill: e.color }}
-                                    transition={{
-                                        duration: 5,
-                                        times: [0, 0.25, 0.75, 1],
-                                        ease: "linear",
-                                    }}
-                                />
-                            </svg>
+                            <AnimatePresence mode="wait">
+                                {!copiado ? (
+                                    <motion.svg
+                                        key="copy"
+                                        initial={{ opacity: 0, scale: 0.5 }}
+                                        animate={{ opacity: 1, scale: 1 }}
+                                        exit={{ opacity: 0, scale: 0.5 }}
+                                        className={`w-6 h-6 text-inherit ${e.id !== 2 ? 'hidden': 'visible'} z-1`}
+                                        fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                    >
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
+                                    </motion.svg>
+                                    ) : (
+                                    <motion.svg
+                                        key="check"
+                                        initial={{ opacity: 0, scale: 0.5 }}
+                                        animate={{ opacity: 1, scale: 1 }}
+                                        exit={{ opacity: 0, scale: 0.5 }}
+                                        className={`w-6 h-6 text-inherit ${e.id !== 2 ? 'hidden': 'visible'} z-1`}
+                                        fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                    >
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M5 13l4 4L19 7" />
+                                        
+                                    </motion.svg>
+                                )}
+                            </AnimatePresence>
                         </Button>
                         
                     ))}
@@ -101,7 +129,7 @@ export default function welcome() {
                                 pathDirection={i.path}
                                 color={i.color}
                                 ronda={ronda}
-                                onComplete={index === img.length - 1 ? ciclo : undefined}
+                                onComplete={index === img.length - 1 ? ciclo : () => {}}
                             />
                         </a>
                     ))}

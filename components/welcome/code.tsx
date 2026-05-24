@@ -10,7 +10,7 @@ const puntos = [
 ]
 
 
-export default function code() {
+export default function Code() {
 
   return (
     <div className='py-4 px-2 sm:px-6 md:py-8 md:px-12 w-full h-full'>

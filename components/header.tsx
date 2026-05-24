@@ -25,35 +25,26 @@ export default function Header() {
   const [active, setActive] = useState<number | null>(null);
   const [menuOpen, setMenuOpen] = useState(false);
 
-  // SOLUCIÓN 1: Referencia para detectar si hacemos clic dentro o fuera del header
   const headerRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
-    // Función que evalúa dónde se hizo clic
     const handleClickOutside = (event: MouseEvent) => {
-      // Si el ref existe y el clic NO fue dentro del header, cerramos el menú
       if (headerRef.current && !headerRef.current.contains(event.target as Node)) {
         setMenuOpen(false);
       }
     };
-
-    // Solo activamos el "escucha" de clics cuando el menú está abierto por rendimiento
     if (menuOpen) {
       document.addEventListener("mousedown", handleClickOutside);
     }
-
-    // Limpiamos el evento al desmontar o cerrar
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
   }, [menuOpen]);
 
-
   useMotionValueEvent(scrollY, "change", (latest) => {
     const prev = scrollY.getPrevious();
     if (!prev) return;
     
-    // SOLUCIÓN 2: Si detecta un scroll significativo (más de 5px para evitar bugs de sensibilidad de dedo), cerramos el menú
     if (Math.abs(latest - prev) > 5) {
       setMenuOpen(false);
     }
@@ -74,7 +65,7 @@ export default function Header() {
           isMobile ? "gap-4 px-4 py-3 rounded-2xl hover:bg-white/5" : "gap-3 px-2 py-1 rounded-md"
         }`}
       >
-        <svg className={`transition-all duration-300 ${isMobile ? "w-6 h-6" : "w-6 h-6 md:w-7 md:h-7"}`} viewBox="0 0 640 640">
+        <svg className={`transition-all duration-300 ${isMobile ? "w-6 h-6" : "w-6 h-6 lg:w-7 lg:h-7"}`} viewBox="0 0 640 640">
           <path
             d={s.p}
             className={`transition-all duration-500 ease-in-out ${
@@ -84,7 +75,7 @@ export default function Header() {
         </svg>
         <span
           className={`transition-all duration-500 font-medium ${
-            isMobile ? "text-lg" : "text-base md:text-lg"
+            isMobile ? "text-lg" : "text-base lg:text-lg"
           } ${isActive ? "text-white" : "text-white/60 group-hover:text-white"}`}
         >
           {s.section}
@@ -95,7 +86,7 @@ export default function Header() {
 
   return (
     <motion.header
-      ref={headerRef} // <-- AÑADIDO: Conectamos la referencia aquí
+      ref={headerRef} 
       animate={{ y: hidden ? -120 : 0 }}
       transition={{ duration: 0.3 }}
       className="w-full sticky top-0 z-50 flex justify-center"
@@ -109,26 +100,30 @@ export default function Header() {
         bg-[#0F0F17]/70 backdrop-blur-xl 
         border border-white/10 shadow-[0_10px_30px_rgba(0,0,0,0.3)]
         px-6 rounded-full transition-[width] duration-300 ease-in-out
-        ${scrolled ? "w-[95%] md:w-[66%] lg:w-[60%]" : "w-[98%] md:w-[70%] lg:w-[66%]"}`}
+        ${scrolled ? "w-[95%] lg:w-[75%] xl:w-[60%]" : "w-[95%] lg:w-[80%] xl:w-[66%]"}`}
       >
-        {/* Logo */}
-        <div className="text-white font-semibold tracking-wide flex items-center gap-1 text-xl md:text-2xl">
-          <Image src="/Group 15.svg" alt="Logo W" width={50} height={30} />
-          <div className="hidden md:block">
+
+        <div className="relative text-white font-semibold flex items-center gap-1 text-xl lg:text-2xl">
+          <Image src="/l.svg"
+            alt="Logo" 
+            className="size-10"
+            width={40}
+            height={40}
+           />
+          
+          <div className="hidden sm:block">
             <span className="text-rose-400 font-bold">illiams</span> Alas
           </div>
         </div>
 
-        {/* Navegación Desktop */}
-        <nav className="hidden md:flex items-center gap-8">
+        <nav className="hidden lg:flex items-center gap-6 xl:gap-8">
           {sections.map((s) => (
              <NavItem key={s.id} s={s} />
           ))}
         </nav>
 
-        {/* Botón Hamburguesa Mobile */}
         <button 
-          className="md:hidden text-white p-2"
+          className="lg:hidden text-white p-2 cursor-pointer"
           onClick={() => setMenuOpen(!menuOpen)}
           aria-expanded={menuOpen}
           aria-label="Abrir menú"
@@ -151,7 +146,7 @@ export default function Header() {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: -20, scale: 0.95 }}
             transition={{ duration: 0.2 }}
-            className="absolute top-24 w-[95%] left-1/2 -translate-x-1/2 md:hidden"
+            className="absolute top-24 w-[95%] left-1/2 -translate-x-1/2 lg:hidden"
           >
             <div className="bg-[#0F0F17]/90 backdrop-blur-xl border border-white/10 rounded-3xl p-4 flex flex-col gap-2 shadow-[0_10px_40px_rgba(0,0,0,0.5)]">
               {sections.map((s) => (

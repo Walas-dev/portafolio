@@ -99,7 +99,7 @@ export default function ActionCardCarrusel() {
                             animate={{ opacity: 1, y: 0 }}
                             exit={{ opacity: 0, y: 20 }}
                             transition={{ duration: 0.4, delay: 0.1, ease: "easeOut" }}
-                            className="text-center text-sm text-slate-200 font-medium leading-relaxed drop-shadow-lg"
+                            className="text-center text-md font-light text-slate-200 leading-relaxed drop-shadow-lg"
                         >
                             {activeItem.detail}
                         </motion.p>

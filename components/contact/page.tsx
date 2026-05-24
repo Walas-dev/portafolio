@@ -8,13 +8,13 @@ const enlace = [
   {
     id: 1, 
     a: 'Hablemos por WhatsApp', 
-    ref: 'https://wa.me/TUNUMERODEWHATSAPP', 
+    ref: 'https://wa.me/584248090931?text=Hola,%20me%20interesa%20tu%20perfil', 
     style: 'bg-[#111111] text-[#FBF6EE] hover:bg-[#111111]/90' 
   },
   {
     id: 2, 
     a: 'Envíame un Correo', 
-    ref: 'mailto:tucorreo@gmail.com?subject=Propuesta%20de%20proyecto', 
+    ref: 'mailto:walabalaz.dev@gmail.com?subject=Tengo%20una%20propuesta%20de%20proyecto', 
     style: 'border-2 border-[#111111] text-[#111111] hover:bg-[#111111] hover:text-[#FD105E]'
   }
 ]
@@ -58,7 +58,7 @@ export default function Page() {
   return (
     <div id="contacto" className='relative flex w-full min-h-screen items-center justify-center bg-[#FD105E] overflow-hidden'>
       
-        <div className='absolute z-10 text-center text-white items-center justify-center flex flex-col px-4'>    
+        <div className='absolute z-10 text-center text-white items-center justify-center flex flex-col px-6 sm:px-8 max-w-7xl mx-auto'>    
                 
                 <motion.div
                   variants={animateContainer} 
@@ -72,7 +72,7 @@ export default function Page() {
                       <motion.h3
                         key={e.id}
                         variants={animateTitle}
-                        className='uppercase font-black text-5xl sm:text-6xl md:text-[5.5rem] text-[#111111] leading-[0.95] tracking-tighter'
+                        className='uppercase font-black text-4xl sm:text-5xl md:text-7xl lg:text-[5rem] text-[#111111] leading-[0.95] tracking-tighter'
                       >
                         {e.t}
                       </motion.h3>
@@ -85,7 +85,7 @@ export default function Page() {
                 initial="oculto" 
                 whileInView="visible"
                 viewport={{ once: false, amount: 0.5 }}
-                className='text-[#111111]/80 mt-6 mb-10 text-base sm:text-lg md:text-xl font-semibold max-w-2xl'
+                className='text-[#111111]/80 mt-6 mb-8 sm:mb-10 sm:text-base md:text-xl font-semibold max-w-[90%] sm:max-w-2xl mx-auto'
               >
                     Tu visión merece el respaldo de expertos para alcanzar su máximo potencial. Unamos talentos ahora para materializar tus grandes objetivos y ver tu negocio crecer con solidez.
               </motion.p>
@@ -95,15 +95,15 @@ export default function Page() {
                 initial="oculto"
                 whileInView="visible"
                 viewport={{ once: false, amount: 0.5 }}
-                className='flex gap-4 flex-wrap justify-center'
+                className='flex flex-col sm:flex-row gap-4 w-full sm:w-auto justify-center'
               >
                 {enlace.map((a)=>(
                   <a 
                     key={a.id}
                     href={a.ref}
-                    target="_blank"
+                    target={a.ref.startsWith('mailto:') ? "_self" : "_blank"}
                     rel="noopener noreferrer"
-                    className={`py-4 px-10 rounded-full font-bold transition-all transform duration-300 hover:-translate-y-1.5 shadow-lg
+                    className={`text-sm sm:text-base py-3.5 sm:py-4 px-8 sm:px-10 rounded-full font-bold transition-all transform duration-300 hover:-translate-y-1.5 shadow-lg w-full sm:w-auto text-center
                         ${a.style}                      
                       `}
                   >

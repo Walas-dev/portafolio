@@ -6,14 +6,21 @@ export interface elements {
     styleTx:string;
     children?: ReactNode;
     colorElement:string;
-
+    onClick?: () => void;
+    href?:string;
 }
 
-export default function Button({title, styleBt, styleTx, children, colorElement}:elements) {
-  return (
-    <button className={`relative overflow-hidden cursor-pointer group/btn tracking-wider transition-all duration-300 flex items-center justify-center gap-3 
-             rounded-full ${styleBt}`}
-     >
+export default function Button({title, styleBt, styleTx, children, colorElement, onClick, href}:elements) {
+  const BaseClass=`
+     relative overflow-hidden cursor-pointer 
+     group/btn tracking-wider transition-all
+     duration-300 flex items-center justify-center
+     gap-3 rounded-full
+     ${styleBt}
+     `;
+
+  const Content = (
+    <>
         <span className={`relative z-10 transition-colors duration-500 
              ${styleTx}`}
         >
@@ -30,8 +37,27 @@ export default function Button({title, styleBt, styleTx, children, colorElement}
             ${colorElement}
             `}
         >
-
         </div>
-    </button>
-  )
+    </>
+  );
+
+  if (href) {
+      return (
+       <a 
+        href={href}
+        target='_blank'
+        rel='noopener noreferrer'
+        className={BaseClass} 
+        onClick={onClick}
+       >
+            {Content}
+        </a> 
+      )
+  }
+
+  return (
+        <button className={BaseClass} onClick={onClick}>
+            {Content}
+        </button> 
+    )
 }
