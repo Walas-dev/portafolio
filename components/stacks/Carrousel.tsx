@@ -8,7 +8,6 @@ interface CarruselProps {
 }
 
 export default function CarruselInfinito({ children, velocidad = 40 }: CarruselProps) {
-  // Ajustamos a 6 repeticiones, suficiente para ultra-anchos
   const repeticiones = Array.from({ length: 6 });
 
   return (
@@ -34,7 +33,6 @@ export default function CarruselInfinito({ children, velocidad = 40 }: CarruselP
       `}} />
 
       <div className="flex w-max shrink-0 items-center gap-4 sm:gap-6 md:gap-8 animate-slide-infinite">
-        {/* Usamos dos bloques idénticos de repeticiones continuas */}
         <div className="flex shrink-0 items-center gap-4 sm:gap-6 md:gap-8">
           {repeticiones.map((_, i) => (
             <React.Fragment key={`mitad1-${i}`}>

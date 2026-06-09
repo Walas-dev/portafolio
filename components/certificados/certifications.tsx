@@ -2,7 +2,7 @@
 import React, { useState } from 'react'
 import Button from '@/components/ui/Button'
 import ViewerIMG from './Viewer'
-import Animation from '@/components/ui/animationEntry'
+import Animation from '@/components/common/animationEntry'
 
 const certificates = [
   {
@@ -36,12 +36,12 @@ export default function Certifications() {
           {certificates.map((c, index) => (
             <Animation key={index} index={index} >
               <div 
-                  className="group relative flex flex-col bg-[#0F0F17]/50 backdrop-blur-xl  border border-[#FD105E]/30 p-8 rounded-3xl hover:border-[#FD105E]/40 transition-all duration-500"
+                  className="group relative flex flex-col bg-[#0F0F17]/50 backdrop-blur-xl  border border-portground/30 p-8 rounded-3xl hover:border-portground/40 transition-all duration-500"
               >
 
                   <div className="flex items-center gap-4 mb-6">
-                  <div className="size-14 flex items-center justify-center rounded-xl group-hover:bg-[#FD105E]/10 border border-white/5 shadow-inner">
-                      <svg viewBox="0 0 640 640" className="size-7 text-slate-300 group-hover:text-[#FD105E]">
+                  <div className="size-14 flex items-center justify-center rounded-xl group-hover:bg-portground/10 border border-white/5 shadow-inner">
+                      <svg viewBox="0 0 640 640" className="size-7 text-slate-300 group-hover:text-portground">
                       <path fill="currentColor" d={c.path}/>
                       </svg>
                   </div>
@@ -49,7 +49,7 @@ export default function Certifications() {
                   </div>
 
                   <div className='grow'>
-                  <h3 className="text-2xl font-bold text-[#FBF6EE] leading-tight group-hover:text-[#FD105E] transition-colors">
+                  <h3 className="text-2xl font-bold text-[#FBF6EE] leading-tight group-hover:text-portground transition-colors">
                       {c.title}
                   </h3>
                   <span className="inline-block mt-2 text-sm text-[#F2C6C2]/40 uppercase ">
@@ -64,13 +64,12 @@ export default function Certifications() {
                       <Button 
                           title='Ver Credencial'
                           onClick={()=>open(c.view)}
-                          styleBt='px-6 py-2 rounded-full border border-[#FD105E]/30'
+                          styleBt='px-6 py-2 rounded-full border border-portground/30'
                           styleTx='text-[#FBF6EE] text-xs font-bold uppercase tracking-wider group-hover/btn:text-[#111111]'
-                          colorElement='bg-[#FD105E]'
+                          colorElement='bg-portground'
                       />                
                   </div>
               </div>
-
             </Animation>
           ))}
           <ViewerIMG

@@ -52,7 +52,7 @@ const [isMounted, setIsMounted] = useState(false);
   return (
    <div className="relative w-full h-full min-h-75 rounded-3xl overflow-hidden bg-[#0F1115]">
       
-      <div className="absolute inset-0 z-10 bg-[#FD105E]/50 backdrop-blur-sm rounded-3xl" />
+      <div className="absolute inset-0 z-10 bg-portground/50 backdrop-blur-sm rounded-3xl" />
 
       {isMounted && (
         <Canvas 
@@ -71,7 +71,7 @@ const [isMounted, setIsMounted] = useState(false);
 export default function Global(){
   
   return(
-      <div className='relative overflow-hidden bg-transparent rounded-3xl flex flex-col gap-3 items-start justify-center p-8 border border-white/10 shadow-2xl h-full min-h-100'>
+      <div className='relative overflow-hidden bg-transparent rounded-3xl flex flex-col gap-3 items-start justify-center p-8 border border-white/10 shadow-2xl h-full min-h-100 w-full'>
         
         <div className="absolute inset-0 z-0">
             <GlobalScene />

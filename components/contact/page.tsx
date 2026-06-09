@@ -15,17 +15,17 @@ const enlace = [
     id: 2, 
     a: 'Envíame un Correo', 
     ref: 'mailto:walabalaz.dev@gmail.com?subject=Tengo%20una%20propuesta%20de%20proyecto', 
-    style: 'border-2 border-[#111111] text-[#111111] hover:bg-[#111111] hover:text-[#FD105E]'
+    style: 'border-2 border-[#111111] text-[#111111] hover:bg-[#111111] hover:text-portground'
   }
 ]
 
 const animateContainer: Variants = {
-  oculto: { opacity: 0, y: 40, filter: "blur(5px)" }, // Entra desde abajo con un ligero desenfoque (muy premium)
+  oculto: { opacity: 0, y: 40, filter: "blur(5px)" },
   visible: { 
     opacity: 1, 
     y: 0, 
     filter: "blur(0px)",
-    transition: { duration: 0.6, ease: [0.25, 1, 0.5, 1] } // Curva de animación suave
+    transition: { duration: 0.6, ease: [0.25, 1, 0.5, 1] }
   }
 }
 
@@ -43,7 +43,6 @@ const animateP: Variants = {
   visible: { opacity: 1, scale: 1, transition: { type: "spring", stiffness: 200, delay: 0.6 } }
 }
 
-
 const animateB: Variants = {
   oculto: { opacity: 0, scale: 0.8, y: 20 },
   visible: { 
@@ -56,7 +55,7 @@ const animateB: Variants = {
 
 export default function Page() {
   return (
-    <div id="contacto" className='relative flex w-full min-h-screen items-center justify-center bg-[#FD105E] overflow-hidden'>
+    <div id="contacto" className='relative flex w-full min-h-screen items-center justify-center bg-linear-to-b from-portground/70 via-portground/75 to-portground/80 overflow-hidden'>
       
         <div className='absolute z-10 text-center text-white items-center justify-center flex flex-col px-6 sm:px-8 max-w-7xl mx-auto'>    
                 

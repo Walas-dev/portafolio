@@ -41,14 +41,12 @@ export default function ActionCardCarrusel() {
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
          
-            className='relative size-full p-8 bg-slate-800/80 backdrop-blur-sm border border-slate-700 flex flex-col items-center justify-between rounded-3xl transition-colors hover:bg-slate-800 overflow-hidden min-h-85'
+            className='flex flex-col size-full p-8 bg-gray-500/8 backdrop-blur-md border border-gray-600/30 hover:border-portground/50  rounded-3xl transition-colors hover:bg-slate-800 overflow-hidden min-h-100'
         >
             <div className="flex-1 w-full flex flex-col items-center justify-center relative z-10">
                 <AnimatePresence mode="wait">
-                    {/* Al separar en dos motion.div, podemos darles direcciones opuestas */}
                     <div key={activeItem.id} className="flex flex-col items-center w-full gap-6">
                         
-                        {/* 1. ANIMACIÓN DEL ÍCONO (Entra desde arriba) */}
                         <motion.div
                             initial={{ opacity: 0, y: -30 }}
                             animate={{ opacity: 1, y: 0 }}
@@ -61,7 +59,6 @@ export default function ActionCardCarrusel() {
                             </svg>
                         </motion.div>
                         
-                        {/* 2. ANIMACIÓN DE LOS TEXTOS (Entran desde abajo) */}
                         <motion.div
                             initial={{ opacity: 0, y: 30 }}
                             animate={{ opacity: 1, y: 0 }}
@@ -78,9 +75,9 @@ export default function ActionCardCarrusel() {
             </div>
 
          
-            <div className='absolute top-70 lg:top-80 flex flex-col items-center gap-2 z-10'>
-                <div className='bg-[#FD105E] h-2 w-24 rounded-2xl'/>
-                <div className='bg-[#FD105E] h-2 w-12 rounded-2xl'/>
+            <div className=' flex flex-col items-center gap-2 z-10 -translate-y-10'>
+                <div className='bg-portground h-2 w-24 rounded-2xl'/>
+                <div className='bg-portground h-2 w-12 rounded-2xl'/>
             </div>
 
             <AnimatePresence>
@@ -90,10 +87,8 @@ export default function ActionCardCarrusel() {
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
                         transition={{ duration: 0.3 }}
-                        // Degradado oscuro abajo, transparente arriba. z-20 lo pone sobre el contenido.
-                        className="absolute inset-0 bg-slate-900/70  backdrop-blur-sm z-20 flex items-center justify-center pb-12 px-8"
+                        className="absolute inset-0 bg-linear-to-l from-portground/10 to-slate-950/40 backdrop-blur-md z-20 flex items-center justify-center pb-12 px-8"
                     >
-                        {/* El texto dentro del cristal hace la animación de entrar desde abajo */}
                         <motion.p
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}

@@ -1,13 +1,13 @@
 import React from 'react'
 import Button from '@/components/ui/Button'
 const button = [
-    {id:1, title:'Ver Certificaciones de Éxito', class:'bg-[#111111] text-[#FBF6EE] ', element:'bg-[#FD105E]/30'},
-    {id:2, title:'Explorar Stack Tecnológico', class:' border-2 border-[#111111] text-[#111111] hover:text-[#FD105E] hover:border-[#FD105E]', element:'bg-[#111111]'},
+    {id:1, title:'Ver Certificaciones de Éxito', class:'bg-[#111111] text-[#FBF6EE] ', element:'bg-portground/30'},
+    {id:2, title:'Explorar Stack Tecnológico', class:' border-2 border-[#111111] text-[#111111] hover:text-portground hover:border-portground', element:'bg-[#111111]'},
 ]
 
 export default function description() {
   return (
-    <div className='bg-[#FD105E] rounded-3xl flex flex-col justify-center w-full p-6 sm:p-8 md:p-12 shadow-2xl h-full'>
+    <div className='bg-portground rounded-3xl flex flex-col justify-center w-full p-6 sm:p-8 md:p-12 shadow-2xl h-full'>
         
             <div className='p-5 '>
                 <h4 className='text-[1.5rem] md:text-xl font-extralight uppercase pb-2'>ingeniero de sistemas</h4>

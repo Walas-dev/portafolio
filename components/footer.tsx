@@ -9,7 +9,7 @@ const redes = [
 
 export default function Footer() {
   return (
-    <footer className='w-full bg-[#0F0F17] border-t border-gray-700 p-6 flex flex-col items-center gap-4'>
+    <footer className='w-full backdrop-blur-lg  p-6 flex flex-col items-center gap-4 z-1'>
       
       <ul className='flex gap-6 justify-center'>
         {redes.map((s) => (
