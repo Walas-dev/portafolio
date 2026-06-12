@@ -5,7 +5,6 @@ import SectionStack from './sectionStack'
 import Animation from '@/components/common/animationEntry';
 import CarruselInfinito from '@/components/stacks/Carrousel'
 
-
 export default function Stacks() {
   return (
     <div id="stack" className='flex-wrap flex w-full justify-center pb-8 z-1'>

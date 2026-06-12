@@ -1,16 +1,7 @@
 "use client";
-
 import React, { useRef } from 'react';
-import { motion, useScroll, useTransform, MotionValue } from 'framer-motion';
-
-interface FilaTextoProps {
-  texto: string;
-  direccion: 'izq' | 'der';
-  progresoScroll: MotionValue<number>;
-  velocidad?: number;
-  indice: number;    
-  totalFilas: number;
-}
+import { motion, useScroll, useTransform } from 'framer-motion';
+import {FilaTextoProps, palabras} from '@/types/mensaje'
 
 const FilaTexto = ({ texto, direccion, progresoScroll, velocidad = 1, indice, totalFilas }: FilaTextoProps) => {
   const rangoSalida = direccion === 'izq' 
@@ -18,15 +9,11 @@ const FilaTexto = ({ texto, direccion, progresoScroll, velocidad = 1, indice, to
     : [`-${50 * velocidad}%`, '0%'];
 
   const x = useTransform(progresoScroll, [0, 1], rangoSalida);
-
   const inicioZonaActiva = 0.25;
   const finZonaActiva = 0.75;
   const rangoZona = finZonaActiva - inicioZonaActiva;
-  
   const margen = rangoZona / totalFilas;
-  
   const picoDeLuz = inicioZonaActiva + (indice + 0.5) * margen;
-
   const opacidadScroll = useTransform(
     progresoScroll,
     [picoDeLuz - margen, picoDeLuz, picoDeLuz + margen],
@@ -38,7 +25,6 @@ const FilaTexto = ({ texto, direccion, progresoScroll, velocidad = 1, indice, to
       <motion.div style={{ x }} className="flex gap-8 items-center will-change-transform">
         {[...Array(6)].map((_, i) => (
           <React.Fragment key={i}>
-            
             <motion.span 
               className="text-6xl md:text-8xl lg:text-9xl font-black text-white font-sans uppercase tracking-tighter transition-colors duration-300"
               style={{ opacity: opacidadScroll }}
@@ -52,7 +38,6 @@ const FilaTexto = ({ texto, direccion, progresoScroll, velocidad = 1, indice, to
             >
               {texto}
             </span>
-
           </React.Fragment>
         ))}
       </motion.div>
@@ -60,25 +45,18 @@ const FilaTexto = ({ texto, direccion, progresoScroll, velocidad = 1, indice, to
   );
 };
 
-
-
-
 export default function SeccionSoyMarquee() {
-  const contenedorRef = useRef<HTMLDivElement>(null);
-  
+  const contenedorRef = useRef<HTMLDivElement>(null);  
   const { scrollYProgress } = useScroll({
     target: contenedorRef,
     offset: ['start end', 'end start'] 
   });
-
-  const palabras = ['Ingenio', 'Vanguardia', 'Escalabilidad', 'Solución', 'Optimización', 'Diseño Creativo', 'Ingeniería de Alto Impacto'];
 
   return (
     <section 
       ref={contenedorRef} 
       className="relative w-full min-h-screen sm:min-h-[180vh] md:min-h-[230vh] 2xl:min-h-[160vh] flex flex-col justify-center overflow-hidden"
     >
-
       <div className="relative z-10 flex flex-col gap-2 md:gap-6 -rotate-2 scale-110">
         {palabras.map((palabra, indice) => (
           <FilaTexto 

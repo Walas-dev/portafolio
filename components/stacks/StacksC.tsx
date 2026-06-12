@@ -1,9 +1,5 @@
 import React from 'react'
-import { Stack } from '../../types/stacks'
-
-interface Content {
-  parametros: Stack[];
-}
+import { Content } from '../../types/stacks'
 
 export default function StacksC({ parametros }: Content) {
   return (
@@ -11,8 +7,7 @@ export default function StacksC({ parametros }: Content) {
       {parametros.map((i) => (
         <React.Fragment key={i.id}>
           <div className={`CARDS relative flex w-24 h-24 md:w-28 md:h-28 rounded-xl justify-center items-center transition-all
-             group cursor-pointer hover:scale-110 duration-300 bg-gray-100/8 bg-portground/10`}>
-            
+             group cursor-pointer hover:scale-110 duration-300 bg-portground/10`}>
 
             <div className="relative flex w-full h-full items-center justify-center z-10">
               <svg

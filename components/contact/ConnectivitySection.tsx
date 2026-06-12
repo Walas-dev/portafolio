@@ -22,7 +22,6 @@ function StructuredNetwork({ isMobile }: { isMobile: boolean }) {
   const { nodePositions, threadConnections } = useMemo(() => {
     const positions = [];
     const connections = [];
-  
     const cols = isMobile ? 8 : 16;        
     const rows = isMobile ? 22 : 16;     
     const spacingX = isMobile ? 1.0 : 1.2; 
@@ -31,12 +30,10 @@ function StructuredNetwork({ isMobile }: { isMobile: boolean }) {
 
     for (let side = 0; side < 2; side++) {
       const direction = side === 0 ? -1 : 1;
-      
       for (let r = 0; r < rows; r++) {
         for (let c = 0; c < cols; c++) {
           const x = direction * (centerVoid + (c * spacingX));
           const y = (r - rows / 2) * spacingY;
-          // Ondulación perfecta basada en geometría, no en azar
           const z = Math.sin(y * 0.5) * 0.5 + Math.cos(x * 0.5) * 0.5; 
 
           positions.push(new THREE.Vector3(x, y, z));
@@ -94,8 +91,7 @@ function StructuredNetwork({ isMobile }: { isMobile: boolean }) {
 }
 
 export default function NetworkScene() {
-  const isMobile = UseIsMobile();
-  
+  const isMobile = UseIsMobile(); 
   return (
     <div className="absolute inset-0 z-0 pointer-events-none">
       <Canvas camera={{ position: [0, 0, isMobile ? 16 : 12], fov: 50 }}>

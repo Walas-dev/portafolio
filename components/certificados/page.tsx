@@ -1,5 +1,4 @@
 'use client'
-import React from 'react'
 import Certifications from './certifications'
 
 export default function page() {
@@ -10,7 +9,6 @@ export default function page() {
       </h3>
 
         <Certifications/>
-    
     </div>
   )
 }

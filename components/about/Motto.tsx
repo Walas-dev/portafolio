@@ -1,5 +1,3 @@
-import React from 'react'
-
 export default function Motto() {
   return (
     <div className='size-full bg-linear-to-br from-portground/20 to-slate-900/40 backdrop-blur-sm rounded-3xl flex flex-col items-start p-8 border border-amber-500/20 relative overflow-hidden h-full min-h-100'>
@@ -21,7 +19,6 @@ export default function Motto() {
                 Arquitectura de Alto Rendimiento
             </p>
         </div>
-
     </div>
   )
 }

@@ -1,15 +1,7 @@
 import { motion } from 'framer-motion';
-import React from 'react';
-
-interface Path {
-  pathDirection: string;
-  delay: number;
-  ronda: number;
-  onComplete: () => void;
-}
+import {Path} from '@/types/common'
 
 export default function IluminarSVG({ pathDirection, ronda, delay, onComplete }: Path) {
-
   const coloresSolidos = ["#4b5563", "#FFFFFF", "#FD105E"];
   const indiceColor = Math.floor(ronda / 2);
   const colorSolido = coloresSolidos[indiceColor % coloresSolidos.length];

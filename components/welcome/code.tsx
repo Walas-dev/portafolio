@@ -1,12 +1,6 @@
 import React from 'react'
 import{ TypewriterText} from './write'
-
-
-const puntos = [
-    {id:1 , style:'bg-rose-500 size-4 rounded-full'},
-    {id:2, style:'bg-yellow-500 size-4 rounded-full'},
-    {id:3, style:'bg-green-500 size-4 rounded-full'}
-]
+import {puntos} from '@/types/welcome'
 
 const Codigo = () =>{
   return (
@@ -47,7 +41,6 @@ const Codigo = () =>{
 }
 
 export default function Code() {
-
   return (
     <div className='py-4 px-2 sm:px-6 md:py-8 md:px-12 w-full h-full z-1'>
         <section className='w-full rounded-2xl overflow-hidden'>

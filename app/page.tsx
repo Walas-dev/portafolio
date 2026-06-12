@@ -6,7 +6,6 @@ import Stack from "@/components/stacks/page";
 import Certification from "@/components/certificados/page";
 import Mensaje from "@/components/mesaje/page"
 import Contact from "@/components/contact/page"
-//import Proyects from "@/components/proyects/proyects";
 
 export default function Home() {
   return (

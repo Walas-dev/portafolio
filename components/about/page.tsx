@@ -1,6 +1,4 @@
 'use client'
-
-import React from 'react';
 import GlobalScene from './global';
 import Atributes from './atributes';
 import Motto from './Motto';
@@ -33,7 +31,6 @@ export default function About() {
             <Action/>
           </FadeInCard>
         </section>
-
       </div>
     </div>
   )

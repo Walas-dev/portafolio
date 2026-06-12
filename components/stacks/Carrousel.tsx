@@ -1,11 +1,6 @@
 'use client'
-
 import React from 'react';
-
-interface CarruselProps {
-  children: React.ReactNode;
-  velocidad?: number;
-}
+import {CarruselProps} from '@/types/stacks'
 
 export default function CarruselInfinito({ children, velocidad = 40 }: CarruselProps) {
   const repeticiones = Array.from({ length: 6 });

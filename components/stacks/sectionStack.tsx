@@ -1,15 +1,10 @@
 'use client'
-import React, { ReactNode, useRef } from 'react'
+import React, { useRef } from 'react'
 import { useInView } from 'framer-motion';
+import {sectionStack} from '@/types/stacks'
 
-interface Content {
-    title: string;
-    children: ReactNode;
-}
-
-export default function SectionStack({ title, children }: Content) {
+export default function SectionStack({ title, children }: sectionStack) {
     const ref = useRef<HTMLDivElement>(null);
-    
     const isInView = useInView(ref, { amount: 0.5 });
 
     return (
@@ -28,7 +23,7 @@ export default function SectionStack({ title, children }: Content) {
             <div className='lg:w-[25%]'>
                 <h3 className={`font-bold text-[2rem] sm:text-[3rem] text-center bg-clip-text text-transparent
                     transition-colors duration-700 ease-in-out
-                    ${isInView ? 'bg-portground' : 'bg-white/50'} /* Título iluminado vs apagado */
+                    ${isInView ? 'bg-portground' : 'bg-white/50'}
                     `}
                 >
                     {title}

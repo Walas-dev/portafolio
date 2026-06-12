@@ -1,8 +1,7 @@
-import React, { useRef, useEffect, useState } from 'react';
+import { useRef, useEffect, useState } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
 import * as THREE from 'three';
 
-// Lógica interna de rotación (No necesita exportarse)
 function RotatingGlobe() {
   const meshRef = useRef<THREE.Group>(null);
 
@@ -51,32 +50,27 @@ const [isMounted, setIsMounted] = useState(false);
 
   return (
    <div className="relative w-full h-full min-h-75 rounded-3xl overflow-hidden bg-[#0F1115]">
-      
       <div className="absolute inset-0 z-10 bg-portground/50 backdrop-blur-sm rounded-3xl" />
-
-      {isMounted && (
-        <Canvas 
-          camera={{ position: [0, 0, 6], fov: 50 }}
-          gl={{ alpha: true }} 
-          className="absolute inset-0 z-0"
-        >
-          <ambientLight intensity={0.5} />
-          <RotatingGlobe />
-        </Canvas>
-      )}
+          {isMounted && (
+            <Canvas 
+              camera={{ position: [0, 0, 6], fov: 50 }}
+              gl={{ alpha: true }} 
+              className="absolute inset-0 z-0"
+            >
+              <ambientLight intensity={0.5} />
+              <RotatingGlobe />
+            </Canvas>
+          )}
       </div>
   );
 }
 
 export default function Global(){
-  
   return(
       <div className='relative overflow-hidden bg-transparent rounded-3xl flex flex-col gap-3 items-start justify-center p-8 border border-white/10 shadow-2xl h-full min-h-100 w-full'>
-        
         <div className="absolute inset-0 z-0">
             <GlobalScene />
         </div>
-
 
         <div className='relative z-20 text-start p-3 py-6 gap-6 flex flex-col mt-auto w-full'>
             <h5 className='font-extralight text-xl text-[#F2C6C2]/80 uppercase tracking-widest'>Geospatial_Sync</h5>
@@ -97,7 +91,6 @@ export default function Global(){
                 <h4 className='font-extrabold text-[#FBF6EE] '>LATAM</h4>
             </div>
         </div>
-
     </div>
   )
 }

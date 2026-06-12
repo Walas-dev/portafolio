@@ -1,12 +1,7 @@
 'use client'
 import React, { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
-
-const VARIANTS = [
-    "está de moda.",
-    "es un arte.",
-    "es mi pasión.",
-];
+import {VARIANTS} from '@/types/welcome'
 
 export const TypewriterText = () => {
   const [index, setIndex] = useState(0);
