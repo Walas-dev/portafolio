@@ -1,11 +1,12 @@
 'use client'
-import React, {   useState, useEffect  } from 'react'
+import React, { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion';
-import {content} from '@/types/welcome'
+import { content } from '@/types/welcome'
 
 export default function Intro() {
     
     const [index, setIndex] = useState(0);
+    
     useEffect(() => {
         const timer = setInterval(() => {
             setIndex((prev) => (prev + 1) % content.length);
@@ -16,15 +17,16 @@ export default function Intro() {
     const activeItem = content[index];
 
   return (
-        <div className='my-10 gap-1'>
-        <AnimatePresence mode="popLayout" initial={false}>
+       
+        <div className='my-10 w-full flex flex-col justify-center min-h-87.5 sm:min-h-75 md:min-h-70 xl:min-h-62.5'>
+            <AnimatePresence mode="popLayout" initial={false}>
                 <motion.div
                     key={activeItem.id}
                     exit={{ opacity: 0, x: 50, filter: 'blur(10px)', transition: { duration: 1.0 } }}
-                    className="w-full flex flex-col gap-6"
+                    className="w-full flex flex-col gap-6 px-5 xl:px-0"
                 >
                     <div className='flex flex-wrap gap-x-4 gap-y-2'>
-                        <h2 className='font-bold text-5xl sm:text-7xl md:text-[6rem] leading-tight flex flex-wrap items-center'>
+                        <h2 className='font-bold text-5xl sm:text-7xl md:text-[6rem] xl:text-[4rem] 2xl:text-[6rem] leading-tight flex flex-wrap items-center'>
                             <motion.span
                                 initial={{ opacity: 0, x: -60 }}
                                 animate={{ opacity: 1, x: 0 }}
@@ -37,7 +39,7 @@ export default function Intro() {
                                 initial={{ opacity: 0, y: 40 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ duration: 0.6, delay: 0.5, ease: "easeOut" }}
-                                className='sm:ml-4 text-portground'
+                                className='text-portground'
                             >
                                 {activeItem.span}
                             </motion.span>
@@ -49,7 +51,7 @@ export default function Intro() {
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.7, delay: 0.8, ease: "easeOut" }}
                     >
-                        <p className='text-white/50 text-[1.3rem]  leading-relaxed'>
+                        <p className='text-white/50 text-[1.3rem] leading-relaxed'>
                             {activeItem.p}
                         </p>
                     </motion.div>

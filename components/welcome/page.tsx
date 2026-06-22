@@ -37,7 +37,7 @@ export default function Page() {
     };
 
     return (
-        <div className='grid grid-cols-1 lg:grid-cols-2 space-y-10 lg:space-y-0 '>
+        <div className='grid grid-cols-1 lg:grid-cols-2 space-y-10 lg:space-y-0 min-h-[80]'>
             <section className='z-1 bg-linear-to-r from-transparent to-portground/80 rounded-3xl lg:rounded-l-none lg:rounded-r-4xl px-3 py-5 md:px-16 md:py-15'>
                 {states.map((s) => (
                     <div key={s.id} className='relative'>

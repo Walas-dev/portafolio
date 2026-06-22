@@ -5,14 +5,14 @@ import {button} from '@/types/about'
 export default function description() {
   return (
     <div className='bg-portground rounded-3xl flex flex-col justify-center w-full p-6 sm:p-8 md:p-12 shadow-2xl h-full'>        
-        <div className='p-5 '>
+        <div>
             <h4 className='text-[1.5rem] md:text-xl font-extralight uppercase pb-2'>ingeniero de sistemas</h4>
-            <h3 className='text-5xl md:text-8xl font-black text-[#FBF6EE] leading-none tracking-tighter'>
+            <h3 className='text-6xl md:text-8xl font-black text-[#FBF6EE] leading-none tracking-tighter'>
                 Williams <span className='text-[#111111] block md:inline'>Alas</span>
             </h3>
         </div>
 
-        <div className='flex flex-col gap-3 px-7 py-5'>
+        <div className='flex flex-col gap-3 p-3'>
             <div className='max-w-2xl space-y-4'>
                     <h2 className="text-2xl md:text-4xl font-bold text-[#FBF6EE] leading-tight">
                         Escale su visión con <span className="text-[#111111]">ingeniería de alto impacto.</span>

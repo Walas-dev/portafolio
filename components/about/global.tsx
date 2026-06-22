@@ -1,73 +1,16 @@
-import { useRef, useEffect, useState } from 'react';
-import { Canvas, useFrame } from '@react-three/fiber';
-import * as THREE from 'three';
-
-function RotatingGlobe() {
-  const meshRef = useRef<THREE.Group>(null);
-
-  useFrame((state, delta) => {
-    if (meshRef.current) {
-      meshRef.current.rotation.y += delta * 0.1; 
-      meshRef.current.rotation.x += delta * 0.05; 
-    }
-  });
-
-  return (
-    <group ref={meshRef}>
-      <points>
-        <icosahedronGeometry args={[2.5, 2]} />
-        <pointsMaterial 
-          color="#FBF6EE" 
-          size={0.06} 
-          sizeAttenuation={true} 
-          transparent 
-          opacity={0.8}
-        />
-      </points>
-      <mesh>
-        <icosahedronGeometry args={[2.5, 2]} />
-        <meshBasicMaterial 
-          color="#FBF6EE" 
-          wireframe 
-          transparent 
-          opacity={0.2} 
-        />
-      </mesh>
-    </group>
-  );
-}
+import Fondo from './fondo'
 
 function GlobalScene() {
-const [isMounted, setIsMounted] = useState(false);
-
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setIsMounted(true);
-    }, 0);
-
-    return () => clearTimeout(timer);
-  }, []);
-
   return (
-   <div className="relative w-full h-full min-h-75 rounded-3xl overflow-hidden bg-[#0F1115]">
-      <div className="absolute inset-0 z-10 bg-portground/50 backdrop-blur-sm rounded-3xl" />
-          {isMounted && (
-            <Canvas 
-              camera={{ position: [0, 0, 6], fov: 50 }}
-              gl={{ alpha: true }} 
-              className="absolute inset-0 z-0"
-            >
-              <ambientLight intensity={0.5} />
-              <RotatingGlobe />
-            </Canvas>
-          )}
-      </div>
+   <div className="relative w-full h-full min-h-75 rounded-3xl overflow-hidden ">
+      <Fondo></Fondo>
+    </div>
   );
 }
 
 export default function Global(){
   return(
-      <div className='relative overflow-hidden bg-transparent rounded-3xl flex flex-col gap-3 items-start justify-center p-8 border border-white/10 shadow-2xl h-full min-h-100 w-full'>
+      <div className='relative overflow-hidden bg-portground/50 rounded-3xl flex flex-col gap-3 items-start justify-center p-8 border border-white/10 shadow-2xl h-full min-h-100 w-full'>
         <div className="absolute inset-0 z-0">
             <GlobalScene />
         </div>

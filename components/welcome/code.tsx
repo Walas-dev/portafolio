@@ -13,15 +13,19 @@ const Codigo = () =>{
                 <br />
 
               <p>  <span className='text-rose-400'>private</span> <span className='text-blue-300'>coreSkills</span> = {'{'}</p>
-              <p>    <span className='text-blue-300'>software</span>: [<span className='text-green-300'>{`"Microservices"`}</span>, <span className='text-green-300'>{`"Frontend"`}</span>],</p>
-              <p>    <span className='text-blue-300'>hardware</span>: [<span className='text-green-300'>{`"Smart CCTV"`}</span>, <span className='text-green-300'>{`"IP Security"`}</span>, <span className='text-green-300'>{`"Networks"`}</span>]</p>
+              <p>     <span className='text-blue-300'>software</span>: [ </p>
+                <p>       <span className='text-green-300'>{`"Microservices"`}</span>,</p>
+                <p>       <span className='text-green-300'>{`"Frontend"`}</span></p>
+              <p>     ],</p>
+              <p>     <span className='text-blue-300'>hardware</span>: [</p>
+                <p>       <span className='text-green-300'>{`"Smart CCTV"`}</span>, </p>
+                <p>       <span className='text-green-300'>{`"IP Security"`}</span>, </p>
+                <p>       <span className='text-green-300'>{`"Networks"`}</span></p>
+              <p>     ],</p>
               <p>  {'}'};</p>
               <br />
 
-              <p>  <span className='text-rose-400'>constructor</span>(<span className='text-rose-400'>private</span> <span className='text-blue-300'>vision</span>: <span className='text-cyan-400'>string</span> = <span className='text-green-300'>{'"Global Innovation"'}</span>) {'{'}</p>
-              <p>    <span className='text-blue-400'>console</span>.<span className='text-yellow-200'>log</span>(<span className='text-green-300'>{'"Ready to scale: "'}</span> + <span className='text-blue-300'>this</span>.<span className='text-blue-300'>vision</span>);</p>
-              <p>  {'}'}</p>
-              <br />
+              
 
               <p>  <span className='text-rose-400'>public</span> <span className='text-yellow-200'>getPhilosophy</span>() {'{'}</p>
               <p>    <span className='text-rose-400'>const</span> <span className='text-blue-300'>passion</span> = <span className='text-rose-400'>true</span>;</p>

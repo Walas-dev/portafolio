@@ -56,10 +56,7 @@ export default function Page() {
                 ))}
             </motion.div>
         </div> 
-            
-            <div className="opacity-40">
-                <ConnectivitySection />
-            </div>
+        <ConnectivitySection />
     </div>
   )
 }

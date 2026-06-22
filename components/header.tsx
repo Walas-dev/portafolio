@@ -86,7 +86,7 @@ export default function Header() {
         bg-[#0F0F17]/70 backdrop-blur-xl 
         border border-white/10 shadow-[0_10px_30px_rgba(0,0,0,0.3)]
         px-6 rounded-full transition-[width] duration-300 ease-in-out
-        ${scrolled ? "w-[95%] lg:w-[75%] xl:w-[60%]" : "w-[95%] lg:w-[80%] xl:w-[66%]"}`}
+        ${scrolled ? "w-[95%] lg:w-[75%] xl:w-[65%]" : "w-[95%] lg:w-[80%] xl:w-[70%]"}`}
       >
 
         <div className="relative text-white font-semibold flex items-center gap-1 text-xl lg:text-2xl">

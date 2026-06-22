@@ -22,7 +22,7 @@ export default function ActionCardCarrusel() {
         <div 
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}         
-            className='flex flex-col size-full p-8 bg-gray-500/8 backdrop-blur-md border border-gray-600/30 hover:border-portground/50  rounded-3xl transition-colors hover:bg-slate-800 overflow-hidden min-h-100'
+            className='flex flex-col size-full p-8 bg-gray-500/8 backdrop-blur-md border border-gray-600/30 rounded-3xl transition-colors hover:bg-linear-to-br from-portground/20 to-slate-900/40 hover:border-portground/50 hover:shadow-[0_10px_40px_rgba(255,16,94,0.15)] overflow-hidden min-h-100'
         >
             <div className="flex-1 w-full flex flex-col items-center justify-center relative z-10">
                 <AnimatePresence mode="wait">
@@ -56,27 +56,7 @@ export default function ActionCardCarrusel() {
                 <div className='bg-portground h-2 w-24 rounded-2xl'/>
                 <div className='bg-portground h-2 w-12 rounded-2xl'/>
             </div>
-            <AnimatePresence>
-                {isHovered && (
-                    <motion.div
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        exit={{ opacity: 0 }}
-                        transition={{ duration: 0.3 }}
-                        className="absolute inset-0 bg-linear-to-l from-portground/10 to-slate-950/40 backdrop-blur-md z-20 flex items-center justify-center pb-12 px-8"
-                    >
-                        <motion.p
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            exit={{ opacity: 0, y: 20 }}
-                            transition={{ duration: 0.4, delay: 0.1, ease: "easeOut" }}
-                            className="text-center text-md font-light text-slate-200 leading-relaxed drop-shadow-lg"
-                        >
-                            {activeItem.detail}
-                        </motion.p>
-                    </motion.div>
-                )}
-            </AnimatePresence>
+            
         </div>
     );
 }
