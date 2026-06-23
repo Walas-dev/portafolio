@@ -23,6 +23,6 @@ const contenido = [
 ]
 
 const button = [
-    {id:1, title:'Ver Certificaciones de Éxito', class:'bg-[#111111] text-[#FBF6EE] ', element:'bg-portground/30'},
-    {id:2, title:'Explorar Stack Tecnológico', class:' border-2 border-[#111111] text-[#111111] hover:text-portground hover:border-portground', element:'bg-[#111111]'},
+    {id:1, title:'Ver Certificaciones de Éxito', href: "#certificados", class:'bg-[#111111] text-[#FBF6EE] ', element:'bg-portground/30'},
+    {id:2, title:'Explorar Stack Tecnológico', href: "#stack", class:' border-2 border-[#111111] text-[#111111] hover:text-portground hover:border-portground', element:'bg-[#111111]'},
 ]

@@ -18,7 +18,7 @@ export default function Intro() {
 
   return (
        
-        <div className='my-10 w-full flex flex-col justify-center min-h-87.5 sm:min-h-75 md:min-h-70 xl:min-h-62.5 max-h-80'>
+        <div className='my-10 w-full flex flex-col justify-center min-h-87.5 md:min-h-70 xl:min-h-62.5 md:max-h-80'>
             <AnimatePresence mode="popLayout" initial={false}>
                 <motion.div
                     key={activeItem.id}

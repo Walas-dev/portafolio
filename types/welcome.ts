@@ -19,9 +19,27 @@ const syntaxElements = [
 ];
 
 const content = [
-    {id:1, title:'Sistemas para', span:'el Crecimiento Infinito', p:'Construyo arquitecturas de microservicios que evolucionan con tu negocio. Convierte la complejidad técnica en una ventaja competitiva escalable y de alto rendimiento.'},
-    {id:2, title:'Seguridad e', span:'Inteligencia Electrónica', p:'Protejo tus activos mediante el despliegue de infraestructura de videovigilancia IP y monitoreo avanzado. Seguridad física respaldada por precisión técnica.'},
-    {id:3, title:'Continuidad y', span:'Resiliencia Técnica', p:'Garantizo que tu tecnología nunca se detenga. Soporte especializado, mantenimiento preventivo y optimización de redes para una operatividad sin interrupciones.'}
+    {   
+        id:1, 
+        title:'Sistemas para el', 
+        span:'Crecimiento Infinito',
+        p:'Construyo arquitecturas de microservicios que evolucionan con tu negocio. Convierte la complejidad técnica en una ventaja competitiva escalable y de alto rendimiento.'},
+    {   
+        id:2, 
+        title:'Seguridad e', 
+        span:'Inteligencia Electrónica',
+        p:'Protejo tus activos mediante el despliegue de infraestructura de videovigilancia IP y monitoreo avanzado. Seguridad física respaldada por precisión técnica.'},
+    {   
+        id:3, 
+        title:'Continuidad y', 
+        span:'Resiliencia Técnica',
+        p:'Garantizo que tu tecnología nunca se detenga. Soporte especializado, mantenimiento preventivo y optimización de redes para una operatividad sin interrupciones.'},
+    {
+        id: 4, 
+        title: 'Presencia y', 
+        span: 'Autoridad Digital', 
+        p: 'Diseño y desarrollo de Landing Pages optimizadas para conversión. Eleva la imagen de tu empresa o marca personal con interfaces rápidas, modernas y orientadas a resultados.'
+    }
 ];
 
 const enlaces = [

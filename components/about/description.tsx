@@ -1,8 +1,9 @@
-import React from 'react'
-import Button from '@/components/ui/Button'
-import {button} from '@/types/about'
 
+
+import {button} from '@/types/about'
+import Link from "next/link";
 export default function description() {
+
   return (
     <div className='bg-portground rounded-3xl flex flex-col justify-center w-full p-6 sm:p-8 md:p-12 shadow-2xl h-full'>        
         <div>
@@ -26,17 +27,30 @@ export default function description() {
         </div>
 
         <div className='flex flex-col sm:flex-row sm:flex-wrap gap-4 md:gap-6 px-1 md:px-5 py-5 items-stretch sm:items-center'>
-            {
-                button.map((b)=>(
-                    <Button 
-                            key={b.id} 
-                        title={b.title}
-                        styleBt={`${b.class} cursor-pointer w-full sm:w-auto px-6 md:px-8 py-3 md:py-4 rounded-full flex justify-center items-center gap-3 transition-all duration-300 hover:scale-105 text-xs font-bold uppercase `}
-                        styleTx='font-bold uppercase tracking-wide text-center'
-                        colorElement={`${b.element}`}
-                    />
-                ))
-            }
+            {button.map((b) => (
+                <Link 
+                    key={b.id} 
+                    href={b.href}
+                    className={`
+                        relative overflow-hidden cursor-pointer group/btn tracking-wider 
+                        transition-all duration-300 flex items-center justify-center gap-3 rounded-full
+                        w-full sm:w-auto px-6 md:px-8 py-3 md:py-4 hover:scale-105 text-xs font-bold uppercase
+                        ${b.class}
+                    `}
+                >
+                    <span className="relative z-10 transition-colors duration-500 font-bold uppercase tracking-wide text-center">
+                        {b.title}
+                    </span>
+
+                    <div className={`
+                        absolute top-1/2 -translate-y-1/2 aspect-square rounded-full 
+                        transition-all duration-500 ease-in-out
+                        w-0 right-0 left-auto
+                        group-hover/btn:w-[150%] group-hover/btn:left-0 group-hover/btn:right-auto
+                        ${b.element}
+                    `} />
+                </Link>
+            ))}
         </div>
     </div>
   )

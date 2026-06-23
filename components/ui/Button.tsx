@@ -1,4 +1,5 @@
 import {elements} from '@/types/Button'
+import Link from "next/link";
 
 export default function Button({title, styleBt, styleTx, children, colorElement, onClick, href}:elements) {
   const BaseClass=`
@@ -33,7 +34,7 @@ export default function Button({title, styleBt, styleTx, children, colorElement,
 
   if (href) {
       return (
-       <a 
+       <Link 
         href={href}
         target='_blank'
         rel='noopener noreferrer'
@@ -41,7 +42,7 @@ export default function Button({title, styleBt, styleTx, children, colorElement,
         onClick={onClick}
        >
             {Content}
-        </a> 
+        </Link> 
       )
   }
 
