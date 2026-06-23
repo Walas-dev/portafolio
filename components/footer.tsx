@@ -3,7 +3,7 @@ import {redes} from '@/types/footer'
 
 export default function Footer() {
   return (
-    <footer className='w-full backdrop-blur-lg  p-6 flex flex-col items-center gap-4 z-1'>      
+    <footer className='w-full   p-6 flex flex-col items-center gap-4 z-1'>      
       <ul className='flex gap-6 justify-center'>
         {redes.map((s) => (
           <li key={s.id}>

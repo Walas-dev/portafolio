@@ -11,15 +11,16 @@ export default function GeometricGridBackground() {
     if (!ctx) return;
 
     let animationFrameId: number;
+    let isVisible = true; 
 
     const spacing = 55; 
     const shapeSize = 10;
-    const influenceRadius = 200;
     const baseOpacity = 0.15;
-    const peakOpacity = 0.85;
-
-    let pointer = { x: -1000, y: -1000 };
-    let targetPointer = { x: -1000, y: -1000 };
+    const peakOpacity = 0.90;
+    
+    const waveCycleDuration = 8; 
+    const waveWidth = 350; 
+    const jumpHeight = 5; 
 
     const shapeTypes = ['circle', 'cross', 'square'];
     const colors = ['255, 255, 255', '10, 10, 10'];
@@ -51,8 +52,7 @@ export default function GeometricGridBackground() {
             y: offsetY + j * spacing,
             type: shapeTypes[(i + j) % shapeTypes.length],
             color: colors[(i + j * 2) % colors.length],
-            angle: 0,
-            baseRotationSpeed: (i % 2 === 0 ? 1 : -1) * 0.005, 
+            diagonalPos: (offsetX + i * spacing) + (offsetY + j * spacing)
           });
         }
       }
@@ -60,23 +60,6 @@ export default function GeometricGridBackground() {
 
     window.addEventListener("resize", buildGrid);
     buildGrid();
-
-    const handlePointerMove = (clientX: number, clientY: number) => {
-      const rect = canvas.getBoundingClientRect();
-      targetPointer.x = clientX - rect.left;
-      targetPointer.y = clientY - rect.top;
-    };
-    const handlePointerLeave = () => { targetPointer = { x: -1000, y: -1000 }; };
-
-    const onMouseMove = (e: MouseEvent) => handlePointerMove(e.clientX, e.clientY);
-    const onTouchMove = (e: TouchEvent) => {
-      if (e.touches.length > 0) handlePointerMove(e.touches[0].clientX, e.touches[0].clientY);
-    };
-
-    window.addEventListener("mousemove", onMouseMove);
-    window.addEventListener("mouseleave", handlePointerLeave);
-    window.addEventListener("touchmove", onTouchMove, { passive: true });
-    window.addEventListener("touchend", handlePointerLeave);
 
     const drawShape = (type: string, size: number) => {
       ctx.beginPath();
@@ -97,55 +80,77 @@ export default function GeometricGridBackground() {
       ctx.stroke();
     };
 
-    const draw = () => {
+    let lastTime = 0;
+    const fps = 30; 
+    const interval = 1000 / fps;
+
+    const draw = (currentTime: number) => {
+      if (!isVisible) return;
+
+      animationFrameId = requestAnimationFrame(draw);
+      
+      const deltaTime = currentTime - lastTime;
+      if (deltaTime < interval) return;
+      lastTime = currentTime - (deltaTime % interval);
+
       const rect = canvas.getBoundingClientRect();
       ctx.clearRect(0, 0, rect.width, rect.height);
-
-      pointer.x += (targetPointer.x - pointer.x) * 0.1;
-      pointer.y += (targetPointer.y - pointer.y) * 0.1;
 
       ctx.lineWidth = 2; 
       ctx.lineCap = "round";
       ctx.lineJoin = "round";
 
+      const timeInSeconds = currentTime / 1000;
+      const maxDistance = rect.width + rect.height; 
+      
+      const progress = (timeInSeconds % waveCycleDuration) / waveCycleDuration;
+      const currentWavePosition = (progress * (maxDistance + waveWidth * 2)) - waveWidth;
+
       for (let i = 0; i < grid.length; i++) {
         const item = grid[i];
-
-        const dx = pointer.x - item.x;
-        const dy = pointer.y - item.y;
-        const distance = Math.sqrt(dx * dx + dy * dy);
+        const distanceToWave = Math.abs(item.diagonalPos - currentWavePosition);
         
         let currentOpacity = baseOpacity;
-        
-        item.angle += item.baseRotationSpeed;
-        let finalAngle = item.angle;
+        let currentYOffset = 0; 
 
-        if (distance < influenceRadius) {
-          const force = 1 - (distance / influenceRadius);
-          currentOpacity = baseOpacity + (force * (peakOpacity - baseOpacity));
-          finalAngle += force * 0.5; 
+        if (distanceToWave < waveWidth) {
+          const force = 1 - (distanceToWave / waveWidth);
+          const smoothForce = force * force; 
+          
+          currentOpacity = baseOpacity + (smoothForce * (peakOpacity - baseOpacity)); 
+          currentYOffset = -(smoothForce * jumpHeight); 
         }
 
         ctx.save();
-        ctx.translate(item.x, item.y);
-        ctx.rotate(finalAngle);
+        ctx.translate(item.x, item.y + currentYOffset); 
         
         ctx.strokeStyle = `rgba(${item.color}, ${currentOpacity})`;
         drawShape(item.type, shapeSize);
         
         ctx.restore();
       }
-      animationFrameId = requestAnimationFrame(draw);
     };
 
-    draw();
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const entry = entries[0];
+        if (entry.isIntersecting) {
+          if (!isVisible) {
+            isVisible = true;
+            animationFrameId = requestAnimationFrame(draw);
+          }
+        } else {
+          isVisible = false;
+        }
+      },
+      { threshold: 0.01 } 
+    );
+
+    observer.observe(canvas);
 
     return () => {
       window.removeEventListener("resize", buildGrid);
-      window.removeEventListener("mousemove", onMouseMove);
-      window.removeEventListener("mouseleave", handlePointerLeave);
-      window.removeEventListener("touchmove", onTouchMove);
-      window.removeEventListener("touchend", handlePointerLeave);
+      observer.disconnect();
       cancelAnimationFrame(animationFrameId);
     };
   }, []);
@@ -153,7 +158,7 @@ export default function GeometricGridBackground() {
   return (
     <canvas
       ref={canvasRef}
-      className="absolute inset-0 z-0 pointer-events-auto"
+      className="absolute inset-0 z-0 pointer-events-none"
     />
   );
 }

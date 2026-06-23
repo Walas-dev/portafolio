@@ -13,7 +13,7 @@ export default function SectionStack({ title, children }: sectionStack) {
             className={`
                 SECCION-STACK flex flex-col rounded-3xl w-[98%] px-3 py-5 lg:px-6 lg:py-15 gap-3 lg:flex-row items-center justify-around
                 backdrop-blur-xl border-2
-                transition-all duration-700 ease-in-out /* Transición suave de Tailwind */
+                transition-all duration-700 ease-in-out
                 ${isInView 
                     ? 'bg-portground/5 border-portground/50' 
                     : 'bg-gray-500/10 border-gray-500/25' 

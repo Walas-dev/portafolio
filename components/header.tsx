@@ -3,7 +3,7 @@ import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { motion, useScroll, useMotionValueEvent, AnimatePresence } from "framer-motion";
-import {SectionType, sections} from '@/types/header'
+import { SectionType, sections } from '@/types/header'
 
 export default function Header() {
   const { scrollY } = useScroll();
@@ -48,7 +48,7 @@ export default function Header() {
         onMouseLeave={() => !isMobile && setActive(null)}
         onClick={() => isMobile && setMenuOpen(false)}
         className={`group flex items-center transition ${
-          isMobile ? "gap-4 px-4 py-3 rounded-2xl hover:bg-white/5" : "gap-3 px-2 py-1 rounded-md"
+          isMobile ? "gap-4 px-6 py-4 rounded-2xl hover:bg-white/5" : "gap-3 px-2 py-1 rounded-md"
         }`}
       >
         <svg className={`transition-all duration-300 ${isMobile ? "w-6 h-6" : "w-6 h-6 lg:w-7 lg:h-7"}`} viewBox="0 0 640 640">
@@ -109,19 +109,28 @@ export default function Header() {
         </nav>
 
         <button 
-          className="lg:hidden text-white p-2 cursor-pointer"
+          className="lg:hidden relative w-8 h-8 flex flex-col items-center justify-center cursor-pointer overflow-hidden"
           onClick={() => setMenuOpen(!menuOpen)}
           aria-expanded={menuOpen}
           aria-label="Abrir menú"
         >
-          <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            {menuOpen ? (
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-            ) : (
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-            )}
-          </svg>
+          <motion.span
+            animate={menuOpen ? { rotate: 45, y: 0 } : { rotate: 0, y: -8 }}
+            transition={{ duration: 0.3, ease: "easeInOut" }}
+            className="absolute w-6 h-0.5 bg-white rounded-full"
+          />
+          <motion.span
+            animate={menuOpen ? { opacity: 0, x: -20 } : { opacity: 1, x: 0 }}
+            transition={{ duration: 0.3, ease: "easeInOut" }}
+            className="absolute w-6 h-0.5 bg-white rounded-full"
+          />
+          <motion.span
+            animate={menuOpen ? { rotate: -45, y: 0 } : { rotate: 0, y: 8 }}
+            transition={{ duration: 0.3, ease: "easeInOut" }}
+            className="absolute w-6 h-0.5 bg-white rounded-full"
+          />
         </button>
+
       </motion.div>
 
       <AnimatePresence>
@@ -131,9 +140,9 @@ export default function Header() {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: -20, scale: 0.95 }}
             transition={{ duration: 0.2 }}
-            className="absolute top-24 w-[95%] left-1/2 -translate-x-1/2 lg:hidden"
+            className="absolute top-21 lg:top-24 w-[95%] left-1/2 -translate-x-1/2 lg:hidden"
           >
-            <div className="bg-[#0F0F17]/90 backdrop-blur-xl border border-white/10 rounded-3xl p-4 flex flex-col gap-2 shadow-[0_10px_40px_rgba(0,0,0,0.5)]">
+            <div className="bg-[#0F0F17]/90 backdrop-blur-xl border border-white/10 rounded-3xl  flex flex-col shadow-[0_10px_40px_rgba(0,0,0,0.5)]">
               {sections.map((s) => (
                 <NavItem key={s.id} s={s} isMobile />
               ))}
