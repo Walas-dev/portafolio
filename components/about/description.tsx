@@ -1,9 +1,7 @@
-
-
 import {button} from '@/types/about'
 import Link from "next/link";
+import { handleSmoothScroll } from '@/types/scroll';
 export default function description() {
-
   return (
     <div className='bg-portground rounded-3xl flex flex-col justify-center w-full p-6 sm:p-8 md:p-12 shadow-2xl h-full'>        
         <div>
@@ -31,6 +29,7 @@ export default function description() {
                 <Link 
                     key={b.id} 
                     href={b.href}
+                    onClick={(e)=>handleSmoothScroll(e, b.href)}
                     className={`
                         relative overflow-hidden cursor-pointer group/btn tracking-wider 
                         transition-all duration-300 flex items-center justify-center gap-3 rounded-full

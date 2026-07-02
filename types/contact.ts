@@ -15,9 +15,13 @@ const enlace = [
   },
   {
     id: 2, 
-    a: 'Envíame un Correo', 
-    ref: 'mailto:walabalaz.dev@gmail.com?subject=Tengo%20una%20propuesta%20de%20proyecto', 
+    a: 'Agendar una Cita', 
+    ref:'https://cal.com/walabalaz-5uwyuf/15min',
     style: 'border-2 border-[#111111] text-[#111111] hover:bg-[#111111] hover:text-portground'
+    /** 
+      a: 'Envíame un Correo', 
+      ref: 'mailto:walabalaz.dev@gmail.com?subject=Tengo%20una%20propuesta%20de%20proyecto', 
+     */
   }
 ]
 

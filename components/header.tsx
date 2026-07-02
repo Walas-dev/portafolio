@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { motion, useScroll, useMotionValueEvent, AnimatePresence } from "framer-motion";
 import { SectionType, sections } from '@/types/header'
+import { handleSmoothScroll } from "@/types/scroll";
 
 export default function Header() {
   const { scrollY } = useScroll();
@@ -46,7 +47,7 @@ export default function Header() {
         href={s.href}
         onMouseEnter={() => !isMobile && setActive(s.id)}
         onMouseLeave={() => !isMobile && setActive(null)}
-        onClick={() => isMobile && setMenuOpen(false)}
+        onClick={(e) => handleSmoothScroll(e, s.href, ()=>isMobile && setMenuOpen(false))}
         className={`group flex items-center transition ${
           isMobile ? "gap-4 px-6 py-4 rounded-2xl hover:bg-white/5" : "gap-3 px-2 py-1 rounded-md"
         }`}
