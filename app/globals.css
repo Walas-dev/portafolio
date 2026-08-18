@@ -1,0 +1,86 @@
+@import "tailwindcss";
+
+:root{
+ --cream: #edf4ed;
+ --espresso: #51291e;
+ --mahogany:#301014;
+ --teal:#79b791;
+ --celadon:#abd1b5;
+}
+
+
+@theme inline {
+  --color-cream: var(--cream);  
+  --color-espresso: var(--espresso);
+  --color-mahogany: var(--mahogany);
+  --color-teal: var(--teal);
+  --color-celadon: var(--celadon);  
+  --font-body: var(--font-inter);
+  --font-heading: var(--font-display);
+  --font-mono: var(--font-mono);
+}
+
+
+@layer base {
+  body {
+    
+    background: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-body);
+    
+    transition: background-color 0.8s cubic-bezier(0.4, 0, 0.2, 1), 
+                color 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+  }
+
+  .technical-border {
+    border: 1px solid var(--color-line);
+    border-radius: 0.5rem;
+  }
+}
+
+
+@keyframes blink {
+  0%, 49% {
+    opacity: 1;
+  }
+  50%, 100% {
+    opacity: 0;
+  }
+}
+
+@keyframes marquee-vertical {
+  0% {
+    transform: translateY(0%);
+  }
+  100% {
+    transform: translateY(-50%);
+  }
+}
+
+.animate-blink {
+  animation: blink 1s step-end infinite;
+}
+
+.animate-marquee-vertical {
+  animation: marquee-vertical 24s linear infinite;
+}
+
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background); 
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
