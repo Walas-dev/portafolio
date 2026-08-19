@@ -3,10 +3,9 @@ import Button from '@/components/ui/Button'
 
 export default function InfoCard() {
   return (
-    <div className=" relative flex min-h-107.5 w-full flex-col justify-between overflow-hidden rounded-3xl bg-mahogany p-7 text-cream shadow-[0_20px_60px_rgba(48,16,20,0.16)] sm:p-9 2xl:p-12 ">
-      <div className=" pointer-events-none absolute inset-0 opacity-[0.08] "
+    <div className=" relative flex min-h-107.5 w-full flex-col justify-between overflow-hidden rounded-3xl bg-cream dark:bg-mahogany p-7 text-cream shadow-[0_20px_60px_rgba(48,16,20,0.16)] sm:p-9 2xl:p-12 ">
+      <div className=" pointer-events-none absolute inset-0 opacity-[0.08] dark:bg-[radial-gradient(circle_at_1.5px_1.5px,#edf4ed_1.8px,transparent_0)] bg-[radial-gradient(circle_at_1.5px_1.5px,#301014_1.8px,transparent_0)]"
         style={{
-          backgroundImage: 'radial-gradient(circle at 2px 2px, #edf4ed 1px, transparent 0)',
           backgroundSize: '24px 24px',
         }}
       />
@@ -14,11 +13,11 @@ export default function InfoCard() {
       <div className="pointer-events-none absolute -right-16 -top-16 size-56 rounded-full border border-teal/10" />
       <div className="relative z-10">
 
-        <p className="mb-3 font-mono text-xs uppercase tracking-[0.3em] text-celadon/70">
+        <p className="mb-3 font-mono text-xs uppercase tracking-[0.3em] text-espresso dark:text-celadon/70">
           ingeniero_de_sistemas
         </p>
         
-        <h3 className=" font-heading text-6xl font-black leading-[0.88] tracking-tighter sm:text-7xl md:text-8xl ">
+        <h3 className=" font-heading text-6xl font-black leading-[0.88] tracking-tighter sm:text-7xl md:text-8xl text-mahogany dark:text-cream ">
           Williams
           <span className="block md:inline md:ml-4">
             Alas
@@ -26,12 +25,12 @@ export default function InfoCard() {
         </h3>
       </div>
 
-      <div className=" relative z-10 mt-12 max-w-3xl ">
+      <div className=" relative z-10 mt-12 max-w-3xl text-mahogany dark:text-cream">
           <h3 className=" mb-4 font-heading text-2xl font-bold leading-tight tracking-tight md:text-3xl " >
             Ingeniería que convierte ideas
             en sistemas.
           </h3>
-          <p className=" max-w-2xl text-sm font-medium leading-7 text-cream/60 md:text-base md:leading-8 ">
+          <p className=" max-w-2xl text-sm font-medium leading-7 dark:text-cream/60 md:text-base md:leading-8 ">
             Diseño y desarrollo soluciones backend, infraestructura cloud
             y automatización con una arquitectura clara, mantenible y
             preparada para evolucionar.
@@ -46,11 +45,11 @@ export default function InfoCard() {
             title={e.title}
             styleBt={` w-full sm:w-auto border px-7 py-3 transition-all duration-300
               ${
-                e.id === 1 ? `border-cream bg-cream text-mahogany hover:bg-celadon hover:border-celadon` 
-                : `border-cream/25 bg-transparent text-cream hover:border-teal hover:bg-teal/10 `
+                e.id === 1 ? `border-mahogany dark:border-cream bg-mahogany dark:bg-cream text-cream dark:text-mahogany dark:hover:bg-celadon dark:hover:border-celadon` 
+                : `border-mahogany/25 dark:border-cream/25 bg-transparent text-mahogany hover:not-dark:text-cream dark:text-cream dark:hover:border-teal dark:hover:bg-teal/10 `
               }
             `} styleTx=" font-mono uppercase tracking-[0.2em] text-xs"
-            colorElement=" bg-teal/70"
+            colorElement="bg-espresso/70  dark:bg-teal/70"
           />
         ))}
       </div>

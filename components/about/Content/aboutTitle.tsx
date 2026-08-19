@@ -5,7 +5,7 @@ const contTitle = () => {
         $ whoami
         </p>
         <h2
-        className=" mt-3 font-heading text-4xl font-bold tracking-tight text-mahogany sm:text-5xl md:text-6xl">
+        className=" mt-3 font-heading text-4xl font-bold tracking-tight text-cream dark:text-mahogany sm:text-5xl md:text-6xl">
         Ingeniería con propósito.
         </h2>
     </div>
