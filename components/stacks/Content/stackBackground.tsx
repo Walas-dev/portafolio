@@ -20,18 +20,7 @@ export default function StackBackground() {
     />
 
       <div
-        className="
-          pointer-events-none
-          absolute
-          left-1/2
-          top-[30%]
-          -translate-x-1/2
-          w-180
-          h-120
-          rounded-full
-          bg-primary/5
-          blur-[120px]
-        "
+        className=" pointer-events-none absolute left-1/2 top-[30%] -translate-x-1/2 w-180 h-120 rounded-full bg-primary/5 blur-[120px] "
       />
     </>
   )

@@ -1,6 +1,6 @@
 const NavTitle = () => {
   return (
-    <div className=" flex shrink-0 items-center justify-between border-b border-white/5 px-5 py-4 ">
+    <div className="hidden lg:flex shrink-0 items-center justify-between border-b border-white/5 px-5 py-4 ">
         <div className="flex items-center gap-2">
             <span className="relative flex size-1.5">
             <span className=" absolute inline-flex size-full animate-ping rounded-full bg-teal/70 " />
