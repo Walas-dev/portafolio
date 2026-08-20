@@ -5,7 +5,7 @@ import FooterMeta from './Content/footerMeta'
 export default function Footer() {
   return (
     <footer
-      className=" relative z-10 w-full border-t border-mahogany/10 bg-cream/85 px-6 py-8 md:px-12 md:py-10"
+      className=" relative z-0 w-full border-t border-mahogany/10 bg-cream/85 px-6 py-8 md:px-12 md:py-10"
     >
       <div className="mx-auto max-w-7xl">
 

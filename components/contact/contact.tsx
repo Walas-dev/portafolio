@@ -5,14 +5,7 @@ export default function Contact() {
   return (
    <section
       id="contacto"
-      className="
-        relative
-        min-h-[75vh]
-        md:min-h-[80vh]
-        w-full
-        overflow-hidden
-        bg-mahogany
-      "
+      className="z-0 relative min-h-[75vh] md:min-h-[80vh] w-full overflow-hidden bg-mahogany"
     >
       <ContactBackground />
       <ContactContent/>
