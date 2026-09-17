@@ -1,5 +1,7 @@
 
-# Williams Alas — Systems Engineer
+<h1 align="center">
+  Williams Alas — Systems Engineer
+</h1>
 
 <p align="center">
   <strong>Portafolio personal de Ingeniería de Sistemas</strong>
@@ -7,6 +9,12 @@
 
 <p align="center">
   Arquitectura · Desarrollo Web · Cloud · DevOps · Automatización
+</p>
+
+<p align="center">
+  <a href="https://ingeniero-de-sistemas-williams-alas.netlify.app/">
+    <strong>🌐 Ver portafolio</strong>
+  </a>
 </p>
 
 ---
@@ -33,6 +41,7 @@ Mi entorno de desarrollo y conjunto de habilidades se centran en tecnologías mo
 
 ---
 
+
 ## Sobre el proyecto
 
 Este repositorio contiene el código fuente de mi portafolio personal como **Ingeniero de Sistemas**.
@@ -46,14 +55,14 @@ El portafolio reúne en un mismo espacio mi perfil profesional, enfoque de traba
 Estas son las tecnologías utilizadas directamente para desarrollar este portafolio:
 
 ### Framework y lenguaje
-Next.js
-TypeScript
+- **Next.js**
+- **TypeScript**
 
 Next.js proporciona la estructura principal de la aplicación y utiliza React como base para la construcción de la interfaz.
 
 ### Estilos y animaciones
-Tailwind CSS
-Framer Motion
+- **Tailwind CSS**
+- **Framer Motion**
 
 Tailwind CSS se utiliza para la construcción y adaptación visual de la interfaz, mientras que Framer Motion se utiliza para animaciones, transiciones e interacciones.
 
@@ -69,6 +78,7 @@ Tailwind CSS se utiliza para la construcción y adaptación visual de la interfa
 
 La aplicación está organizada principalmente mediante las carpetas app, components y public.
 
+```text
 /
 ├── app/
 │   ├── favicon.ico
@@ -132,8 +142,9 @@ La aplicación está organizada principalmente mediante las carpetas app, compon
 ├── postcss.config.mjs
 ├── README.md
 └── tsconfig.json
+```
 
-app/
+ - app/
 
 Contiene la estructura principal de la aplicación Next.js.
 
@@ -141,8 +152,9 @@ Contiene la estructura principal de la aplicación Next.js.
 - page.tsx — Página principal.
 - globals.css — Estilos globales.
 - favicon.ico — Icono del sitio.
-- components/
 
+
+- components/
 Contiene los componentes que construyen las diferentes secciones del portafolio.
 
 Cada sección principal mantiene su propia carpeta:
@@ -158,9 +170,11 @@ Cada sección principal mantiene su propia carpeta:
 - ui/
 - Content/
 
-Las carpetas Content/ contienen componentes internos utilizados para construir cada sección.
+Las carpetas 
 
-Esta separación permite dividir secciones complejas en componentes más pequeños.
+- Content/
+
+ contienen componentes internos utilizados para construir cada sección. Esta separación permite dividir secciones complejas en componentes más pequeños.
 
 - types/
 
@@ -174,17 +188,17 @@ Contiene componentes reutilizables de interfaz.
 
 Contiene los recursos estáticos utilizados por el portafolio, como imágenes y documentos.
 
-=======
+---
 
 ## Instalar las dependencias
 
 Dentro de la carpeta del proyecto ejecuta:
 
+```sh
 npm install
+```
 
 Este comando lee el archivo package.json e instala automáticamente las dependencias necesarias.
-
-No es necesario instalar React, Next.js, Tailwind u otras dependencias manualmente.
 
 ## Ejecutar el servidor de desarrollo
 
@@ -218,11 +232,13 @@ Para detener el servidor:
 Ctrl + C
 ```
 
+
 ---
+
 
 ## 📫 Contacto
 
 Estoy abierto a nuevas oportunidades profesionales, colaboraciones y retos técnicos. 
 
-* **Email:** [walabalaz.dev@gmail.com](mailto:tu.correo@email.com)
-* **Portafolio Web:** [Williams Alas | Ingeniero de Sistemas](#https://ingeniero-de-sistemas-williams-alas.netlify.app/)
+* **Email:** [walabalaz.dev@gmail.com](mailto:walabalaz.dev@gmail.com)
+* **Portafolio Web:** [Williams Alas | Ingeniero de Sistemas](https://ingeniero-de-sistemas-williams-alas.netlify.app/)
